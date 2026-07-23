@@ -1,0 +1,16 @@
+@use "../mixins/mixins-master" as mixins;
+@use "../variables-site/variables-site" as *;
+@use "../mixins/mq" as mq;
+
+.site-footer {
+	text-align: center;
+	margin-top: auto;
+
+	@include mq.mq($from: medium) {
+		@include mixins.font-size(0.75);
+	}
+
+	p {
+		margin: 0;
+	}
+}

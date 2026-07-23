@@ -1,0 +1,37 @@
+{
+  "name": "dekiru",
+  "version": "1.1.0",
+  "main": "./js/main.js",
+  "scripts": {
+    "start": "gulp watch",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:dekiru-uk/dekiru-wp-theme-2026.git"
+  },
+  "author": "Jake Smith / D E K I R U",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "browser-sync": "^3.0.4",
+    "gulp": "^5.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-touch-cmd": "0.0.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp5-sass-plugin": "^2.1.0",
+    "node-gyp": "11.5.0",
+    "postcss": "^8.5.10",
+    "sass": "^1.99.0",
+    "vinyl-buffer": "^1.0.1"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1",
+    "sass-mq": "^7.0.0"
+  }
+}

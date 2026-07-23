@@ -1,0 +1,17 @@
+@use "../variables-site/variables-site" as vars;
+@use "../mixins/mixins-master" as mixins;
+
+@forward "headings";
+@forward "copy";
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: vars.$color__text-main;
+	font-family: vars.$font__main;
+	@include mixins.font-size(1);
+	line-height: vars.$font__line-height-body;
+}

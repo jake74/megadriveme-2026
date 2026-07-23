@@ -1,0 +1,39 @@
+// sass-mq wrapper with custom breakpoints
+@use '../../node_modules/sass-mq/mq' as sassmq;
+@use 'sass:map';
+
+// Define our breakpoint map
+$breakpoints: (
+    small: 540px,
+    medium: 750px,
+    mediumlarge: 960px,
+    large: 1200px,
+    xlarge: 1400px
+) !default;
+
+// Wrapper mixin to use our breakpoints with sass-mq
+@mixin mq($from: null, $until: null, $and: null, $media-type: all) {
+    $from-value: null;
+    $until-value: null;
+    
+    // Convert our breakpoint names to values
+    @if $from {
+        @if map.has-key($breakpoints, $from) {
+            $from-value: map.get($breakpoints, $from);
+        } @else {
+            $from-value: $from;
+        }
+    }
+    
+    @if $until {
+        @if map.has-key($breakpoints, $until) {
+            $until-value: map.get($breakpoints, $until);
+        } @else {
+            $until-value: $until;
+        }
+    }
+    
+    @include sassmq.mq($from: $from-value, $until: $until-value, $and: $and, $media-type: $media-type) {
+        @content;
+    }
+}

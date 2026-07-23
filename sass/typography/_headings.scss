@@ -1,0 +1,13 @@
+@use "../mixins/mixins-master" as mixins;
+@use "../variables-site/variables-site" as *;
+@use "../mixins/mq" as mq;
+
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	margin-top: 0;
+	@include mixins.font-size(2.25);
+
+	@include mq.mq($from: medium) {
+		@include mixins.font-size(3.5);
+	}
+}

@@ -1,0 +1,40 @@
+/*!
+Theme Name: DEKIRU
+Author: jake / D E K I R U
+Author URI: https://dekiru.gg
+Description: WP theme
+Version: 1.1.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: dekiru
+*/
+
+// Load variables globally for backward compatibility
+@use 'variables-site/variables-site' as *;
+
+// Load vendor libraries  
+@use 'vendor/hamburgers/hamburgers';
+@use 'vendor/magnific-popup';
+
+// Load mixins
+@use 'mixins/mixins-master' as mixins;
+
+// Load base styles
+@use 'normalize';
+
+// Load component styles
+@use 'typography/typography';
+@use 'elements/elements';
+@use 'forms/forms';
+@use 'navigation/navigation';
+
+// Load modules
+@use 'modules/accessibility';
+@use 'modules/alignments';
+@use 'modules/clearings';
+
+// Load layout
+@use 'layout/base';
+@use 'layout/header';
+@use 'layout/footer';
+	
