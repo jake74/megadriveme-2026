@@ -1,0 +1,56 @@
+{
+    "key": "group_569bcf23b2b48",
+    "title": "Hardware",
+    "fields": [
+        {
+            "key": "field_83",
+            "label": "Release date",
+            "name": "release_date",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "Japanese release date. Can be overridden with the actual post date.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_id": 184,
+            "parent_id": 0,
+            "default_value": "",
+            "return_format": "d\/m\/YY",
+            "first_day": 1,
+            "display_format": "d\/m\/Y",
+            "default_to_current_date": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "discussion",
+        "comments",
+        "slug",
+        "author"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1784805412
+}

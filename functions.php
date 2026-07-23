@@ -166,6 +166,11 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/custom-image-sizes.php';
 
 /**
+ * Custom post types.
+ */
+require get_template_directory() . '/inc/custom-post-types.php';
+
+/**
  * Google fonts.
  */
 // require get_template_directory() . '/inc/google-fonts.php';

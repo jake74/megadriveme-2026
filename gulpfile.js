@@ -1,4 +1,4 @@
-var dev_url = 'dekiru-wp.wp';
+var dev_url = 'mdme.wp';
 
 'use strict';
 
