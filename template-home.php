@@ -27,6 +27,8 @@ $game_birthday = false;
 				),
 			),
 			'posts_per_page' => -1, // Set to a specific number or -1 to show all
+			'orderby' => 'date',
+			'order' => 'ASC', // Ascending order
 		) );
 
 		if ( $today_posts->have_posts() ) : ?>

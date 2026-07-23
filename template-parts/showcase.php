@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14/swiper-bundle.min.css">
-<script src="https://cdn.jsdelivr.net/npm/swiper@14/swiper-bundle.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   if (typeof Swiper === 'undefined') {
@@ -37,22 +35,22 @@ document.addEventListener('DOMContentLoaded', function () {
             $link = '';
 
             if ($game_link != '') {
-                $link = $game_link['url'];
+              $link = $game_link['url'];
             }
 
             $alt = $image['alt'];
 
             if ($alt == '') {
-                $alt = $image['title'];
+              $alt = $image['title'];
             }
         ?>
         <div class="swiper-slide">
           <?php if($link) : ?><a href="<?php echo $link; ?>"><?php endif; ?>
-            <?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'alt' => $alt ) ); ?>
+            <?php echo wp_get_attachment_image( $image['ID'], 'large', false, array( 'alt' => $alt ) ); ?>
           <?php if($link) : ?></a><?php endif; ?>
         </div>
-        <?php //endwhile;
-        endforeach;?>
+        <?php 
+          endforeach;?>
       <?php endif; ?>
     </div>
   </div>

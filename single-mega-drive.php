@@ -52,7 +52,7 @@ $youtube_clip = get_field('youtube_clip');
 					'id' => 'cover-image',
 				);
 			
-				echo get_the_post_thumbnail( get_the_ID(), 'md_cover_large', $array );
+				echo get_the_post_thumbnail();
 			?>
 		</div>
 

@@ -124,10 +124,10 @@ function dekiru_scripts() {
 	wp_deregister_script('jquery');
 	wp_enqueue_script('jquery', get_template_directory_uri() . '/js/vendor/jquery-4.0.0.min.js', array(), null, true);
 
-	/* 
+
 		wp_enqueue_script('swiper-script', get_template_directory_uri() . '/js/vendor/swiper-bundle.min.js', array(), null, true);
 		wp_enqueue_style( 'swiper-style', get_template_directory_uri() . '/js/vendor/swiper-bundle.min.css' );
-
+	/* 
 		wp_enqueue_script( 'magnifique-scripts', get_template_directory_uri() . '/js/vendor/jquery.magnific-popup-edit.js', array(), null, true );
 	*/
 
