@@ -1,4 +1,14 @@
+@font-face {
+    font-family: "Mega Driva Three";
+    src: url("assets/fonts/mega-drive.woff2") format("woff2"),url("assets/fonts/mega-drive.woff") format("woff"),url("assets/fonts/mega-drive.otf") format("opentype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+$megadrivefont: "Mega Driva Three";
+
 $font__main: sans-serif;
+$font__heading: $megadrivefont, sans-serif;
 $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
 $font__line-height-body: 1.5;

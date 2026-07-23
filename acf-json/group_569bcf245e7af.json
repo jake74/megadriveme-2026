@@ -263,24 +263,6 @@
             "save_options": 0
         },
         {
-            "key": "field_569bcfd95c6f6",
-            "label": "Options",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
             "key": "field_6",
             "label": "Battery",
             "name": "battery",
@@ -315,7 +297,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
+            "message": "6 Button pad compatible",
             "default_value": 0,
             "allow_in_bindings": 1,
             "ui": 0,
@@ -336,7 +318,28 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
+            "message": "Modem compatible",
+            "default_value": 0,
+            "allow_in_bindings": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_6a621d9929087",
+            "label": "Multi-tap",
+            "name": "multi_tap",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "Multi-tap compatible",
             "default_value": 0,
             "allow_in_bindings": 1,
             "ui": 0,
@@ -357,7 +360,28 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
+            "message": "Mouse compatible",
+            "default_value": 0,
+            "allow_in_bindings": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_6a621dc229089",
+            "label": "XE-1AP",
+            "name": "xe1ap",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "XE-1AP Compatible",
             "default_value": 0,
             "allow_in_bindings": 1,
             "ui": 0,
@@ -461,7 +485,7 @@
                     "name": "video",
                     "aria-label": "",
                     "type": "oembed",
-                    "instructions": "",
+                    "instructions": "https:\/\/www.youtube.com\/watch?v=",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -503,5 +527,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1784807023
+    "modified": 1784816388
 }

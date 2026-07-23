@@ -27,11 +27,15 @@
 	<header id="masthead" class="site-header">
 		<div class="header-content">
 			<a href="<?php echo home_url(); ?>" title="Return to the homepage" class="logo">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg"
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/megadriveme.svg"
 					width="120" height="120" alt="<?php echo get_bloginfo('name'); ?>"
 					class="logo-image"
 				>
 			</a>
+
+			<div class="search">
+				<?php get_search_form(); ?>
+			</div>
 
 			<nav id="site-navigation" class="main-navigation">
 				<button name="menu" class="hamburger menu-toggle hamburger--squeeze" type="button" aria-controls="primary-menu" aria-expanded="false" title="Menu">
