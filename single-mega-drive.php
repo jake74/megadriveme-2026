@@ -36,10 +36,6 @@ $overview = get_field('overview');
 $comment = get_field('comment');
 $notes = get_field('notes');
 
-$gallery = get_field('gallery');
-
-$youtube = get_field('youtube');
-$youtube_clip = get_field('youtube_clip');
 
 ?>
 
