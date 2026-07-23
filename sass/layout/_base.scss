@@ -1,4 +1,12 @@
+@use "../mixins/mixins-master" as mixins;
 @use "../variables-site/variables-site" as *;
+@use "../mixins/mq" as mq;
+
+:root {
+	--gap: 20px;
+	--gap-half: calc(var(--gap) / 2);
+	--gap-double: calc(var(--gap) * 2);
+}
 
 * {
 	box-sizing: border-box;
@@ -36,10 +44,30 @@ body {
 	min-height: 100dvh;
 }
 
+.site-main {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	gap: var(--gap);
+}
+
 .site-header,
 .site-content,
 .site-footer {
-	padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--gap-double);
+
+	> div[class*="content"] {
+		grid-column: 1 / span 12;
+
+		@include mq.mq($from: mediumlarge) {
+			grid-column: 7 / span 6;
+		}
+
+		@include mq.mq($from: large) {
+			grid-column: 5 / span 8;
+		}
+	}
 }
 
 img,
@@ -50,4 +78,30 @@ video {
 
 .hidden {
 	display: none;
+}
+
+.display-grid {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	gap: var(--gap);
+
+	.game-cover {
+		grid-column: span 4;
+
+		@include mq.mq($from: $small) {
+			grid-column: span 3;
+		}
+
+		@include mq.mq($from: $medium) {
+			grid-column: span 2;
+		}
+
+		@include mq.mq($from: $mediumlarge) {
+			grid-column: span 3;
+		}
+
+		@include mq.mq($from: $large) {
+			grid-column: span 2;
+		}
+	}
 }

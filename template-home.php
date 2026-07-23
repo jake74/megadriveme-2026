@@ -11,11 +11,11 @@ $game_birthday = false;
 
 ?>
 
-	<div class="content-area">
-		<main id="main" class="site-main">
-
-		<?php get_template_part( 'template-parts/showcase' ); ?>
-			
+<main id="main" class="site-main">
+	
+	<?php get_template_part( 'template-parts/showcase' ); ?>
+		
+	<div class="cabinet-content">
 		<?php
 		$today_posts = new WP_Query( array(
 			'post_type' => array( 'mega-drive', '32x', 'mega-cd', 'hardware' ),
@@ -32,22 +32,24 @@ $game_birthday = false;
 		) );
 
 		if ( $today_posts->have_posts() ) : ?>
-		<h1>Today in Mega Drive History</h1>
-		<?php while ( $today_posts->have_posts() ) : $today_posts->the_post(); 
-			$game_birthday = true;	
-		?>
-				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-				<div class="entry-summary">
-					<?php the_excerpt(); ?>
-				</div>
-
-			<?php endwhile;
+			<p>Today in Mega Drive History</p>
+			<div class="display-grid mega-drive">
+				<?php while ( $today_posts->have_posts() ) : $today_posts->the_post(); 
+					$game_birthday = true;	
+				?>
+					<?php 
+						get_template_part( 'template-parts/card', 'game-cover' );
+					?>
+				<?php endwhile; ?>
+			</div>
+			<?php
 			wp_reset_postdata();
 		endif;
 		?>
 
 		<div class="random-mega-drive">
-			<h2>Random Mega Drive Game</h2>
+			<p>Random Mega Drive Game</p>
+			<p><a href="<?php echo get_post_type_archive_link( 'mega-drive' ); ?>">View all Mega Drive games</a></p>
 			<?php
 			$random_game = new WP_Query( array(
 				'post_type' => 'mega-drive',
@@ -57,10 +59,7 @@ $game_birthday = false;
 
 			if ( $random_game->have_posts() ) :
 				while ( $random_game->have_posts() ) : $random_game->the_post(); ?>
-					<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-					<div class="entry-summary">
-						<?php the_excerpt(); ?>
-					</div>
+					<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
 				<?php endwhile;
 				wp_reset_postdata();
 			else :
@@ -70,7 +69,8 @@ $game_birthday = false;
 		</div>
 
 		<div class="random-mega-cd">
-			<h2>Random Mega CD Game</h2>
+			<p>Random Mega CD Game</p>
+			<p><a href="<?php echo get_post_type_archive_link( 'mega-cd' ); ?>">View all Mega CD games</a></p>
 			<?php
 			$random_game = new WP_Query( array(
 				'post_type' => 'mega-cd',
@@ -80,10 +80,7 @@ $game_birthday = false;
 
 			if ( $random_game->have_posts() ) :
 				while ( $random_game->have_posts() ) : $random_game->the_post(); ?>
-					<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-					<div class="entry-summary">
-						<?php the_excerpt(); ?>
-					</div>
+					<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
 				<?php endwhile;
 				wp_reset_postdata();
 			else :
@@ -93,29 +90,27 @@ $game_birthday = false;
 		</div>
 
 		<div class="random-32x">
-			<h2>Random 32X Game</h2>
+			<p>Random 32X Game</p>
+			<p><a href="<?php echo get_post_type_archive_link( '32x' ); ?>">View all 32X games</a></p>
 			<?php
 			$random_game = new WP_Query( array(
 				'post_type' => '32x',
 				'orderby' => 'rand',
-				'posts_per_page' => 4,
+				'posts_per_page' => 8,
 			) );
 
 			if ( $random_game->have_posts() ) :
 				while ( $random_game->have_posts() ) : $random_game->the_post(); ?>
-					<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-					<div class="entry-summary">
-						<?php the_excerpt(); ?>
-					</div>
+					<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
 				<?php endwhile;
 				wp_reset_postdata();
 			else :
 				echo '<p>No 32X games found.</p>';
 			endif;
 			?>
+		</div>
 
-		</main>
-	</div>
+	</main>
 
 <?php
 get_footer();

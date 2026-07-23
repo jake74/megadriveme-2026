@@ -1,0 +1,70 @@
+@use "../mixins/mixins-master" as mixins;
+@use "../variables-site/variables-site" as *;
+@use "../mixins/mq" as mq;
+@use 'sass:color';
+
+body[class*="home"] {
+  // .site-main {
+  //   display: grid;
+  //   grid-template-columns: repeat(12, minmax(0, 1fr));
+  //   gap: var(--gap-double);
+  // }
+
+  .showcase {
+    display: none;
+    
+    @include mq.mq($from: mediumlarge) {
+      display: grid;
+      gap: var(--gap-double);
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100dvh;
+      z-index: -1;
+    }
+
+
+    .showcase-content {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      grid-column: 1 / span 6;
+        
+      @include mq.mq($from: large) {
+        grid-column: 1 / span 4;
+
+      }
+    }
+
+    .swiper-wrapper {
+      align-items: stretch;
+    }
+
+    .swiper-slide {
+      height: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .cabinet-content {
+    grid-column: 1 / span 12;
+
+    @include mq.mq($from: mediumlarge) {
+      grid-column: 7 / span 6;
+    }
+
+    @include mq.mq($from: large) {
+      grid-column: 5 / span 8;
+    }
+  }
+}

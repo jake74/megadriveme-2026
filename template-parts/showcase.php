@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <div class="showcase">
   <div class="showcase-content">
+    
     <div class="swiper-wrapper">
       <?php 
         $showcase = get_field( 'mega_drive_showcase', 'options');
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ?>
         <div class="swiper-slide">
           <?php if($link) : ?><a href="<?php echo $link; ?>"><?php endif; ?>
-            <?php echo wp_get_attachment_image( $image['ID'], 'large', false, array( 'alt' => $alt ) ); ?>
+            <?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'alt' => $alt ) ); ?>
           <?php if($link) : ?></a><?php endif; ?>
         </div>
         <?php 

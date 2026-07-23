@@ -15,14 +15,12 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<main id="main" class="site-main">
 
-			<h1><?php the_title(); ?></h1>
-			<?php echo the_content(); ?>
+		<h1><?php the_title(); ?></h1>
+		<?php echo the_content(); ?>
 
-		</main>
-	</div>
+	</main>
 
 <?php
 get_footer();

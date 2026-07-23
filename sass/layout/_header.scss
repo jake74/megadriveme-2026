@@ -3,6 +3,17 @@
 @use "../mixins/mq" as mq;
 
 .site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  .header-content {
+    background: rgba(white,0.25);
+    backdrop-filter: blur(10px);
+  }
+
   .logo {
     
   }

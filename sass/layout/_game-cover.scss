@@ -1,0 +1,248 @@
+@use "../mixins/mixins-master" as mixins;
+@use "../variables-site/variables-site" as *;
+@use "../mixins/mq" as mq;
+@use 'sass:color';
+
+.game-detail-cover {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: translateX(0);
+  will-change: width;
+	opacity: 0;
+	height: 50vh;
+	margin: 0 -10px;
+	transition: all 0.5s ease-in-out;
+	z-index: 1002;
+	
+	@include mq.mq($from: mediumlarge) {
+		margin: -20px -10px 20px;
+		margin-top: -120px;
+		height: calc(100vh - 6px);
+	}
+
+	@include mq.mq($from: large) {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+    &.ready {
+        opacity: 1;
+    }
+
+	// watermark
+    &:before {
+      content: '';
+      display: block;
+      background: url('assets/images/megadriveme-white-keyline.svg') center center no-repeat;
+      background-size: contain;
+      width: 56px;
+      height: 40px;
+      position: absolute;
+      bottom: 1vh;
+      right: 1vh;
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+      pointer-events: none;
+    }
+
+	// full screen view
+	&.full-screen {
+		width: 100vw;
+		height: calc(100vh - 126px);
+
+		@include mq.mq($from: mediumlarge) {
+			// height: unset;
+			height: calc(100vh - 6px);
+		}
+
+		img {
+			max-height: 80vh;
+			max-width: 80vh;
+		}
+
+        &:before {
+            opacity: 0.25;
+        }
+
+		picture {
+			@include mq.mq($from: mediumlarge) {
+				&:hover {
+					cursor: zoom-out;
+				}
+			}
+		}
+	}
+
+	// background effect
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: url('assets/images/plastic_cover.jpg') center center;
+		// background-size: cover;
+		mix-blend-mode: multiply;
+		opacity: 0.75;
+	}
+
+	picture {
+		margin: 2vh 2vw;
+		position: relative;
+		z-index: +1;
+		filter: drop-shadow(0 0 10px rgba(black, 0.5));
+		transform: rotate(var(--rotate));
+
+		&:hover {
+			cursor: zoom-in;
+		}
+
+		// cover seam on right
+		body.single-mega-drive & {
+			background-image: linear-gradient(to right, $color_black 0%, $color_black 97%, color.adjust($color_black, $lightness: 10%) 98%, color.adjust($color_black, $lightness: 20%) 99%, $color_black 99.5%);
+			border-radius: 6px;	
+		}
+		// flip for Sunsoft
+		body.single-mega-drive.sunsoft & {
+			background-image: linear-gradient(to left, $color_black 0%, $color_black 97%, color.adjust($color_black, $lightness: 10%) 98%, color.adjust($color_black, $lightness: 20%) 99%, $color_black 99.5%);
+		}
+
+		body.single-mega-drive & {
+			// plastic cover effect
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				z-index: +1;
+				top: 4px;
+				right: 6px;
+				bottom: 4px;
+				left: 0;
+				background-image: url('assets/images/plastic_cover.jpg');
+				background-size: cover;
+				mix-blend-mode: multiply;
+
+				body.single-mega-drive.sunsoft & {
+					transform: rotate(180deg);
+				}
+			}
+
+			// spine shine
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 4px;
+				right: 10px;
+				bottom: 4px;
+				left: 0;
+				background-image: linear-gradient(to right, rgba(white, 0.2) 0, rgba(white, 0.3) 1%, rgba(white, 0) 5% );
+
+				body.single-mega-drive.sunsoft & {
+					top: 8px;
+					right: 0;
+					bottom: 8px;
+					left: 16px;
+					background-image: linear-gradient(to left, rgba(white, 0.2) 0, rgba(white, 0.3) 1%, rgba(white, 0) 5% );
+				}
+			}
+		}
+
+		body.single-mega-cd & {
+			background-color: $color_black;
+			border-radius: 3px;
+			border-top: calc(100/40 * 2px) ridge rgba(white, 0.25);
+			border-right: calc(100/40 * 2px) ridge rgba(white, 0.25);
+			border-bottom: calc(100/40 * 2px) ridge rgba(white, 0.25);
+
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 100%;
+				height: 100%;
+				// border-left: calc(100/60 * 1px) ridge rgba(white, 0.25);
+				background: linear-gradient( calc(var(--rotate)*10 + 90deg ), transparent 0, transparent 50%, rgba(white, 0.33) 60%, transparent 70%, transparent 85%, rgba(white, 0.23) 95%);
+			}
+		}
+
+		img {
+			pointer-events: none;
+			height: 100%;
+			max-height: 56vh;
+			width: auto;
+			transition: all 0.5s ease-in-out;
+
+			@include mq.mq($from: mediumlarge) {
+				height: auto;
+			}
+
+			body.single-mega-drive & {
+				border-radius: 6px;
+				border-top: 2px solid $color_black;
+				border-right: 1px solid $color_black;
+				border-bottom: 2px solid $color_black;
+				padding: 1px 3px 1px 0;
+	
+				@include mq.mq($from: mediumlarge) {
+					border-top-width: 4px;
+					border-right-width: 2px;
+					border-bottom-width: 4px;
+				}
+			}
+
+			body.single-mega-drive.sunsoft & {
+				border-right: 0;
+				border-left: 10px solid $color_black;
+				border-top-width: 8px;
+				border-bottom-width: 8px;
+				padding: 2px 0 2px 12px;
+			}
+		}
+	}
+
+	// some Mega CD titles are still shrinkwrapped with spine cards
+	&:not(.shrinkwrapped) {
+		picture {
+			body.single-mega-cd & {
+				padding-left: calc(600/70 * 0.5%);
+	
+				&:before {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: calc(600/80 * 1%);
+					height: 100%;
+					background-image: repeating-linear-gradient(90deg, rgba(white, 0.15), $color_black 4%, rgba(black, 0.15) 9% );
+					border-top: 1px solid rgba(white, 0.25);
+					border-right: 1px solid rgab(white, 0.7);
+					border-bottom: 1px solid rgba(black, 0.75);
+					border-left: 1px solid rgab(white, 0.2);
+				}
+	
+				&:after {
+					width: calc(100% - (600/80 * 1%));
+				}
+			}
+		}
+
+		img {
+			// mega cd style
+			body.single-mega-cd & {
+				// padding-left: calc(600/70 * 1%);
+				background-color: $color_black;
+				border-top: calc(100/40 * 1px) solid rgba(black, 0.75);
+				border-right: calc(100/40 * 2px) solid rgba(black, 0.75);
+				border-bottom: calc(100/40 * 1px) solid rgba(black, 0.75);
+			}
+		}
+		
+	}
+}

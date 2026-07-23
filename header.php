@@ -22,7 +22,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'dekiru' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'dekiru' ); ?></a>
 
 	<header id="masthead" class="site-header">
 		<div class="header-content">
@@ -56,5 +56,3 @@
 			</nav>
 		</div>
 	</header>
-
-	<div id="content" class="site-content">

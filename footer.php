@@ -10,9 +10,7 @@
  */
 
 ?>
-
-	</div>
-
+  
 	<footer class="site-footer" role="contentinfo">
 		<div class="footer-content">
 			<div class="logo">

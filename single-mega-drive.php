@@ -19,7 +19,7 @@ $developer = get_field('developer');
 $memory = get_field('memory');
 $price = get_field('price');
 
-$release_date = get_field('release_date');
+$release_date = get_the_date();
 
 $players = get_field('players');
 $genre = get_field('genre');

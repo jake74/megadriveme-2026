@@ -35,5 +35,9 @@ Text Domain: dekiru
 // Load layout
 @use 'layout/base';
 @use 'layout/header';
+@use 'layout/home';
+@use 'layout/covers';
+@use 'layout/game-cover';
+@use 'layout/game-page';
 @use 'layout/footer';
 	

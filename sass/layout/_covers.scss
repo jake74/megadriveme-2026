@@ -1,0 +1,125 @@
+@use "../mixins/mixins-master" as mixins;
+@use "../variables-site/variables-site" as *;
+@use "../mixins/mq" as mq;
+@use 'sass:color';
+
+body.hfeed {
+
+	.hentry {
+		position: relative;
+		padding: 0 8px;
+		margin-bottom: 16px;
+		width: calc((100/3) * 1%);
+		overflow: hidden;
+
+		@include mq.mq($from: $small) {
+			width: calc((100/4) * 1%);
+		}
+
+		@include mq.mq($from: $medium) {
+			padding: 0 10px;
+			margin-bottom: 20px;
+			width: calc((100/6) * 1%);
+		}
+
+		@include mq.mq($from: $mediumlarge) {
+			width: calc((100/4) * 1%);
+		}
+
+		@include mq.mq($from: $large) {
+			padding: 0 10px;
+			margin-bottom: 20px;
+			width: calc((100/6) * 1%);
+		}
+
+		// @include mq.mq($from: $large) {
+		// 	width: calc((100 / 8) * 1%);
+		// }
+
+		// @include mq.mq($from: $xlarge) {
+		// 	width: calc((100 / 8) * 1%);
+		// }
+
+		@include mq.mq($from: $xlarge) {
+			width: calc((100 / 8) * 1%);
+		}
+
+		a {
+			display: block;
+			padding: 10px 10px 6px;
+			text-decoration: none;
+			color: white;
+			// @include font-size(0.625);
+			// line-height: 1.1;
+			// font-weight: 400;
+
+			@include mq.mq($from: $mediumlarge) {
+				// @include font-size(0.8);
+			}
+
+			&:hover {
+				.entry-header {
+					transform: translateY(0);
+				}
+			}
+		}
+
+		.entry-header {
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			z-index: +1;
+			transform: translateY(100%);
+			transition: all 0.25s ease;
+		}
+
+		.entry-title {
+			margin: 0;
+			@include mixins.font-smoothing();
+			@include mixins.font-size(0.8);
+			background-image: linear-gradient(to bottom, rgba(transparent, 0) 0, rgba(black, 0.6) 90% );
+			border-bottom: 1px solid $color-md_red;
+			text-shadow: 0 0 3px rgba(black, 0.666);
+			padding: 10px;
+
+			@include mq.mq($from: $mediumlarge) {
+				// padding: 20px;
+				@include mixins.font-size(1);
+			}
+		}
+
+		.game-cover {
+			display: block;
+			position: relative;
+			// z-index: -1;
+			// height: 0;
+			padding-top: calc((100 * 3/2.1) * 1%);
+			background: color.adjust($color-md_grey, $lightness: 50%) url('assets/images/megadriveme-white-keyline.svg') center center no-repeat;
+			background-size: 56px 40px;
+
+			picture,
+			img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			img {
+				pointer-events: none;
+			}
+		}
+
+	}
+
+	// mega cd cover ratio
+	&[class*='mega-cd'] {
+		.game-cover {
+			padding-top: 100%;
+		}
+	}
+}

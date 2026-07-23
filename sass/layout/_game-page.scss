@@ -1,0 +1,35 @@
+@use "../mixins/mixins-master" as mixins;
+@use "../variables-site/variables-site" as *;
+@use "../mixins/mq" as mq;
+@use 'sass:color';
+
+.game-detail-cover {
+  grid-column: 1 / span 12;
+
+  @include mq.mq($from: mediumlarge) {
+    grid-column: 1 / span 6;
+  }
+
+  @include mq.mq($from: large) {
+    grid-column: 1 / span 4;
+  }
+}
+
+.single-game {
+  grid-column: 1 / span 12;
+
+  @include mq.mq($from: mediumlarge) {
+    grid-column: 7 / span 6;
+  }
+
+  @include mq.mq($from: large) {
+    grid-column: 5 / span 8;
+  }
+}
+
+.game-navigation {
+  ul {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
