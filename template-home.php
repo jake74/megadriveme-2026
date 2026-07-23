@@ -13,6 +13,8 @@ $game_birthday = false;
 
 	<div class="content-area">
 		<main id="main" class="site-main">
+
+		<?php get_template_part( 'template-parts/showcase' ); ?>
 			
 		<?php
 		$today_posts = new WP_Query( array(
@@ -28,7 +30,7 @@ $game_birthday = false;
 		) );
 
 		if ( $today_posts->have_posts() ) : ?>
-		<h1>Today in Gaming History</h1>
+		<h1>Today in Mega Drive History</h1>
 		<?php while ( $today_posts->have_posts() ) : $today_posts->the_post(); 
 			$game_birthday = true;	
 		?>
@@ -39,8 +41,6 @@ $game_birthday = false;
 
 			<?php endwhile;
 			wp_reset_postdata();
-		else :
-				echo '<p>No posts found for today.</p>';
 		endif;
 		?>
 

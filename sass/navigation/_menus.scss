@@ -66,13 +66,13 @@
 	a {
 		display: block;
 		text-decoration: none;
-		color: $color_primary;
+		color: $color_black;
 		font-weight: 600;
 		padding: 10px 20px;
 		
 		&:hover {
 			background-color: black;
-			color: $color_primary;
+			color: $color_md-red;
 		}
 	}
 
@@ -80,12 +80,12 @@
 	.current-menu-item:not(.inpage) > a,
 	.current-page-ancestor:not(.inpage) > a,
 	.current-menu-ancestor > a {
-		background-color: $color_secondary;
-		color: $color_primary;
+		background-color: $color_black;
+		color: $color_md-red;
 
 		@include mq.mq($from: mediumlarge) {
-			background-color: $color_primary;
-			color: $color_secondary;
+			background-color: $color_black;
+			color: $color_md-red;
 		}
 	}
 }
@@ -116,16 +116,16 @@
 		width: 100%;
 		height: 100dvh;
 		z-index: 1000;
-		background: $color_primary;
+		background: $color_black;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 
 		a {
-			color: $color_secondary;
+			color: $color_md-red;
 
 			&:hover {
-				color: $color_primary;
+				color: $color_black;
 			}
 		}
 

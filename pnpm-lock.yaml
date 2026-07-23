@@ -12,11 +12,14 @@ importers:
   .:
     dependencies:
       jquery:
-        specifier: ^3.7.1
-        version: 3.7.1
+        specifier: ^4.0.0
+        version: 4.0.0
       sass-mq:
         specifier: ^7.0.0
         version: 7.0.0
+      swiper:
+        specifier: ^14.0.6
+        version: 14.0.6
     devDependencies:
       autoprefixer:
         specifier: ^10.5.0
@@ -51,9 +54,6 @@ importers:
       gulp-uglify:
         specifier: ^3.0.2
         version: 3.0.2
-      gulp5-sass-plugin:
-        specifier: ^2.1.0
-        version: 2.1.0(gulp@5.0.1)
       node-gyp:
         specifier: 11.5.0
         version: 11.5.0
@@ -846,12 +846,6 @@ packages:
   gulp-uglify@3.0.2:
     resolution: {integrity: sha512-gk1dhB74AkV2kzqPMQBLA3jPoIAPd/nlNzP2XMDSG8XZrqnlCiDGAqC+rZOumzFvB5zOphlFh6yr3lgcAb/OOg==}
 
-  gulp5-sass-plugin@2.1.0:
-    resolution: {integrity: sha512-i672SaO/sPeclO0aWNTS3frndxt6qnybcO5vaAjf6yLa6CrjOhfTt4YLddac7icBwSdxM2raKfFCskqCbaKuQw==}
-    engines: {node: '>=14'}
-    peerDependencies:
-      gulp: ^5.0.0
-
   gulp@5.0.1:
     resolution: {integrity: sha512-PErok3DZSA5WGMd6XXV3IRNO0mlB+wW3OzhFJLEec1jSERg2j1bxJ6e5Fh6N6fn3FH2T9AP4UYNb/pYlADB9sA==}
     engines: {node: '>=10.13.0'}
@@ -1028,8 +1022,8 @@ packages:
   jackspeak@3.4.3:
     resolution: {integrity: sha512-OGlZQpz2yfahA/Rd1Y8Cd9SIEsqvXkLVoSw/cgwhnhFMDbsQFeZYoJJ7bIZBS9BcamUW96asq/npPWugM+RQBw==}
 
-  jquery@3.7.1:
-    resolution: {integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==}
+  jquery@4.0.0:
+    resolution: {integrity: sha512-TXCHVR3Lb6TZdtw1l3RTLf8RBWVGexdxL6AC8/e0xZKEpBflBsjh9/8LXw+dkNFuOyW9B7iB3O1sP7hS0Kiacg==}
 
   jsonfile@3.0.1:
     resolution: {integrity: sha512-oBko6ZHlubVB5mRFkur5vgYR1UyqX+S6Y/oCfLhqNdcc2fYFlDpIoNc7AfKS1KOGcnNAkvsr0grLck9ANM815w==}
@@ -1575,6 +1569,10 @@ packages:
 
   sver@1.8.4:
     resolution: {integrity: sha512-71o1zfzyawLfIWBOmw8brleKyvnbn73oVHNCsu51uPMz/HWiKkkXsI31JjHW5zqXEqnPYkIiHd8ZmL7FCimLEA==}
+
+  swiper@14.0.6:
+    resolution: {integrity: sha512-ArptjmcZMBvpLCbvzSKuqvQpjjITCbZdymiGOrbZQffQ3ZSjgpvMByXX0WZBUt+FV4PPIumdYfZ9ZdBbFsdH6g==}
+    engines: {node: '>= 4.7.0'}
 
   tar@7.5.21:
     resolution: {integrity: sha512-XdhtCvlMywwxpCW8YEq3lOXBJpUPTR2OHHcwLPO3HwsJqOHa2Ok/oJ7ruGzp+JrKoRPVCzJwAdEjqLW/vNRPHA==}
@@ -2640,21 +2638,6 @@ snapshots:
       uglify-js: 3.19.3
       vinyl-sourcemaps-apply: 0.2.1
 
-  gulp5-sass-plugin@2.1.0(gulp@5.0.1):
-    dependencies:
-      gulp: 5.0.1
-      picocolors: 1.1.1
-      plugin-error: 2.0.1
-      replace-ext: 2.0.0
-      sass: 1.99.0
-      source-map-js: 1.2.1
-      strip-ansi: 7.2.0
-      vinyl: 3.0.1
-      vinyl-sourcemaps-apply: 0.2.1
-    transitivePeerDependencies:
-      - bare-abort-controller
-      - react-native-b4a
-
   gulp@5.0.1:
     dependencies:
       glob-watcher: 6.0.0
@@ -2822,7 +2805,7 @@ snapshots:
     optionalDependencies:
       '@pkgjs/parseargs': 0.11.0
 
-  jquery@3.7.1: {}
+  jquery@4.0.0: {}
 
   jsonfile@3.0.1:
     optionalDependencies:
@@ -3392,6 +3375,8 @@ snapshots:
   sver@1.8.4:
     optionalDependencies:
       semver: 6.3.1
+
+  swiper@14.0.6: {}
 
   tar@7.5.21:
     dependencies:
