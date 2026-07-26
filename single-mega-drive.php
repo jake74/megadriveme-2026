@@ -35,22 +35,26 @@ $usa_title = get_field('usa');
 $overview = get_field('overview');
 $comment = get_field('comment');
 $notes = get_field('notes');
-
-
 ?>
 
-	<main id="primary" class="site-main">
 
-		<div class="game-detail-cover">
-			<?php 
-				$array = array(
-					'alt' => the_title_attribute( array( 'echo' => false, ) ),
-					'id' => 'cover-image',
-				);
-			
-				echo get_the_post_thumbnail();
-			?>
+	<div class="game-detail-cover aside">
+		<div class="cover-wrapper">
+			<div class="game-case">
+				<?php 
+					$array = array(
+						'alt' => the_title_attribute( array( 'echo' => false, ) ),
+						'id' => 'cover-image',
+						'class' => 'cover-image',
+					);
+				
+					echo get_the_post_thumbnail( get_the_ID(), 'md_cover_large', $array );
+				?>
+			</div>
 		</div>
+	</div>
+	
+	<main id="primary" class="site-main">
 
 		<div class="single-game">
 			<?php

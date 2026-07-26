@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-<div class="showcase">
+<div class="showcase aside">
   <div class="showcase-content">
     
     <div class="swiper-wrapper">

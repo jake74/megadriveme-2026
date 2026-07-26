@@ -4,33 +4,60 @@
 @use 'sass:color';
 
 .game-detail-cover {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transform: translateX(0);
-  will-change: width;
-	opacity: 0;
 	height: 50vh;
-	margin: 0 -10px;
-	transition: all 0.5s ease-in-out;
-	z-index: 1002;
+	// margin: 0 -10px;
+	// transition: all 1s ease-in-out;
+  // background-color: $color_black;
+  z-index: 999;
 	
 	@include mq.mq($from: mediumlarge) {
-		margin: -20px -10px 20px;
-		margin-top: -120px;
-		height: calc(100vh - 6px);
+		// margin: -120px -10px 20px;
+		// margin-top: -120px;
+		// height: calc(100vh - 6px);
+    height: 100dvh;
+    position: sticky;
+    top: 0;
+    bottom: 0;
 	}
 
-	@include mq.mq($from: large) {
-		margin-left: 0;
-		margin-right: 0;
-	}
+	// @include mq.mq($from: large) {
+	// 	margin-left: 0;
+	// 	margin-right: 0;
+	// }
 
-    &.ready {
-        opacity: 1;
+  .cover-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    grid-column: 1 / span 4;
+    background-color: $color_black;
+    transition: all 1s ease-in-out;
+    position: relative;
+    transform: translateX(0);
+    will-change: all;
+    opacity: 0;
+
+
+    // background effect
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('assets/images/plastic_cover.jpg') center center;
+      // background-size: cover;
+      mix-blend-mode: multiply;
+      opacity: 0.75;
     }
 
-	// watermark
+
+    // watermark
     &:before {
       content: '';
       display: block;
@@ -45,27 +72,40 @@
       transition: all 0.5s ease-in-out;
       pointer-events: none;
     }
+  }
+
+  &.ready {
+    .cover-wrapper {
+      opacity: 1;
+    }
+  }
 
 	// full screen view
 	&.full-screen {
-		width: 100vw;
-		height: calc(100vh - 126px);
+		// width: 100vw;
+    // width: 100%;
+    // grid-column: 1 / span 12;
+		// height: calc(100vh - 126px);
 
 		@include mq.mq($from: mediumlarge) {
 			// height: unset;
-			height: calc(100vh - 6px);
+			// height: calc(100vh - 6px);
 		}
+
+    .cover-wrapper {
+      width: 100dvw;
+    }
 
 		img {
 			max-height: 80vh;
 			max-width: 80vh;
 		}
 
-        &:before {
-            opacity: 0.25;
-        }
+    &:before {
+      opacity: 0.25;
+    }
 
-		picture {
+		.game-case {
 			@include mq.mq($from: mediumlarge) {
 				&:hover {
 					cursor: zoom-out;
@@ -74,27 +114,13 @@
 		}
 	}
 
-	// background effect
-	&:after {
-		content: '';
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: url('assets/images/plastic_cover.jpg') center center;
-		// background-size: cover;
-		mix-blend-mode: multiply;
-		opacity: 0.75;
-	}
-
-	picture {
+	.game-case {
 		margin: 2vh 2vw;
 		position: relative;
 		z-index: +1;
 		filter: drop-shadow(0 0 10px rgba(black, 0.5));
 		transform: rotate(var(--rotate));
+    transition: all 2s ease-in;
 
 		&:hover {
 			cursor: zoom-in;
@@ -102,7 +128,7 @@
 
 		// cover seam on right
 		body.single-mega-drive & {
-			background-image: linear-gradient(to right, $color_black 0%, $color_black 97%, color.adjust($color_black, $lightness: 10%) 98%, color.adjust($color_black, $lightness: 20%) 99%, $color_black 99.5%);
+			background-image: linear-gradient(to right, $color_black 0%, $color_black 97%, color.adjust($color_black, $lightness: 10%) 98%, color.adjust($color_black, $lightness: 20%) 99%, black 99.5%);
 			border-radius: 6px;	
 		}
 		// flip for Sunsoft
@@ -121,7 +147,7 @@
 				right: 6px;
 				bottom: 4px;
 				left: 0;
-				background-image: url('assets/images/plastic_cover.jpg');
+				background-image: url('assets/images/plastic_cover_darker.webp');
 				background-size: cover;
 				mix-blend-mode: multiply;
 
@@ -139,7 +165,7 @@
 				right: 10px;
 				bottom: 4px;
 				left: 0;
-				background-image: linear-gradient(to right, rgba(white, 0.2) 0, rgba(white, 0.3) 1%, rgba(white, 0) 5% );
+				background-image: linear-gradient(to right, rgba(white, 0.2) 0, rgba(white, 0.3) 1%, rgba(white, 0) 3% );
 
 				body.single-mega-drive.sunsoft & {
 					top: 8px;

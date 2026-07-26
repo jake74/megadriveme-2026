@@ -13,8 +13,6 @@ $game_birthday = false;
 
 <main id="main" class="site-main">
 	
-	<?php get_template_part( 'template-parts/showcase' ); ?>
-		
 	<div class="cabinet-content">
 		<?php
 		$today_posts = new WP_Query( array(
@@ -109,8 +107,12 @@ $game_birthday = false;
 			endif;
 			?>
 		</div>
+	</div>
 
-	</main>
+</main>
+
+
+	<?php get_template_part( 'template-parts/showcase' ); ?>
 
 <?php
 get_footer();
