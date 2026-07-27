@@ -1,18 +1,18 @@
 @use "../mixins/mixins-master" as mixins;
 @use "../variables-site/variables-site" as *;
 
+.btn,
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	border: 1px solid;
-	border-color: $color__border-button;
-	border-radius: 3px;
-	background: $color__background-button;
-	color: rgba(0, 0, 0, .8);
+	border-color: $color_md-grey;
+	background: transparent;
+	color: $color_md-grey;
 	@include mixins.font-size(0.75);
 	line-height: 1;
-	padding: .6em 1em .4em;
+	padding: 10px 20px;
 
 	&:hover {
 		border-color: $color__border-button-hover;
@@ -21,5 +21,26 @@ input[type="submit"] {
 	&:active,
 	&:focus {
 		border-color: $color__border-button-focus;
+	}
+}
+
+
+.view-all {
+	border: 1px solid $color_md-grey;
+	color: $color_md-grey;
+	// @include mixins.font-size(0.75);
+	font-weight: 300;
+	line-height: 1;
+	padding: 10px 20px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	transition: all 0.25s ease;
+
+	&:hover {
+		color: white;
+		background-color: $color_md-green;
+		border-color: $color_md-green;
 	}
 }

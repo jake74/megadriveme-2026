@@ -5,41 +5,32 @@
 
 .game-detail-cover {
 	height: 50vh;
-	// margin: 0 -10px;
-	// transition: all 1s ease-in-out;
-  // background-color: $color_black;
   z-index: 999;
 	
 	@include mq.mq($from: mediumlarge) {
-		// margin: -120px -10px 20px;
-		// margin-top: -120px;
-		// height: calc(100vh - 6px);
-    height: 100dvh;
-    position: sticky;
+		transition: all 1.5s ease-in-out;
+    will-change: all;
+    height: 100%;
     top: 0;
     bottom: 0;
 	}
 
-	// @include mq.mq($from: large) {
-	// 	margin-left: 0;
-	// 	margin-right: 0;
-	// }
+  &.ready {		
+    .cover-wrapper {
+      opacity: 1;
+    }
+  }
 
   .cover-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
-    padding: 20px;
-    grid-column: 1 / span 4;
+    padding: 2vh 2vw;
+		height: 100%;
     background-color: $color_black;
-    transition: all 1s ease-in-out;
     position: relative;
     transform: translateX(0);
-    will-change: all;
     opacity: 0;
-
 
     // background effect
     &:after {
@@ -66,44 +57,30 @@
       width: 56px;
       height: 40px;
       position: absolute;
+			z-index: +1;
       bottom: 1vh;
       right: 1vh;
       opacity: 0;
-      transition: all 0.5s ease-in-out;
       pointer-events: none;
-    }
-  }
-
-  &.ready {
-    .cover-wrapper {
-      opacity: 1;
+			transition: all 1.5s ease-in-out;
+			transition-delay: 1s;
     }
   }
 
 	// full screen view
 	&.full-screen {
-		// width: 100vw;
-    // width: 100%;
-    // grid-column: 1 / span 12;
-		// height: calc(100vh - 126px);
-
-		@include mq.mq($from: mediumlarge) {
-			// height: unset;
-			// height: calc(100vh - 6px);
-		}
-
-    .cover-wrapper {
-      width: 100dvw;
-    }
-
-		img {
-			max-height: 80vh;
-			max-width: 80vh;
-		}
+    width: 100dvw;
 
     &:before {
       opacity: 0.25;
     }
+
+		.cover-wrapper {
+
+			&:before {
+				opacity: .5;
+			}
+		}
 
 		.game-case {
 			@include mq.mq($from: mediumlarge) {
@@ -120,7 +97,8 @@
 		z-index: +1;
 		filter: drop-shadow(0 0 10px rgba(black, 0.5));
 		transform: rotate(var(--rotate));
-    transition: all 2s ease-in;
+		max-height: 80%;
+		max-width: 80%;
 
 		&:hover {
 			cursor: zoom-in;
@@ -133,7 +111,7 @@
 		}
 		// flip for Sunsoft
 		body.single-mega-drive.sunsoft & {
-			background-image: linear-gradient(to left, $color_black 0%, $color_black 97%, color.adjust($color_black, $lightness: 10%) 98%, color.adjust($color_black, $lightness: 20%) 99%, $color_black 99.5%);
+			background-image: linear-gradient(to left, $color_black 0%, $color_black 97%, color.adjust($color_black, $lightness: 10%) 98%, color.adjust($color_black, $lightness: 20%) 99%, black 99.5%);
 		}
 
 		body.single-mega-drive & {
@@ -202,7 +180,8 @@
 			height: 100%;
 			max-height: 56vh;
 			width: auto;
-			transition: all 0.5s ease-in-out;
+			opacity: 0;
+			// transition: all 0.5s ease-in-out;
 
 			@include mq.mq($from: mediumlarge) {
 				height: auto;
@@ -211,13 +190,14 @@
 			body.single-mega-drive & {
 				border-radius: 6px;
 				border-top: 2px solid $color_black;
-				border-right: 1px solid $color_black;
+				border-right: clamp(2px, 5vw, 3px) solid $color_black;
 				border-bottom: 2px solid $color_black;
 				padding: 1px 3px 1px 0;
 	
 				@include mq.mq($from: mediumlarge) {
 					border-top-width: 4px;
-					border-right-width: 2px;
+					border-right-width: 4px;
+					// border-right-width: clamp(2px, 5vw, 8px);
 					border-bottom-width: 4px;
 				}
 			}

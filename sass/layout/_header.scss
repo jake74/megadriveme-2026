@@ -5,16 +5,44 @@
 .site-header {
   position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: calc(30% + 20px);
+  width: calc(70% - 20px);
   z-index: 500;
-
+  
   .header-content {
-    background: rgba(white,0.25);
+    background: rgba(white, 0.75);
     backdrop-filter: blur(10px);
+    padding-bottom: var(--gap);
+    display: grid;
+    column-gap: var(--gap);
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 
+      "logo search"
+      "logo nav";
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
   }
 
   .logo {
-    
+    grid-area: logo;
+    background-color: $color_black;
+    aspect-ratio: 1/1;
+    padding: 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .search {
+    grid-area: search;
+    justify-self: end;
+    align-self: end;
+    padding: var(--gap-half) var(--gap) var(--gap-half) 0;
+  }
+
+  .main-navigation {
+    grid-area: nav;
+    justify-self: end;
+    align-self: end;
+    padding: var(--gap-half) var(--gap) var(--gap-half) 0;
   }
 }

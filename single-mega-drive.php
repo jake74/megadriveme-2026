@@ -48,7 +48,7 @@ $notes = get_field('notes');
 						'class' => 'cover-image',
 					);
 				
-					echo get_the_post_thumbnail( get_the_ID(), 'md_cover_large', $array );
+					echo get_the_post_thumbnail( '', 'full', $array );
 				?>
 			</div>
 		</div>

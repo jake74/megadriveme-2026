@@ -3,17 +3,17 @@
 @use "../mixins/mq" as mq;
 @use 'sass:color';
 
-.game-detail-cover {
-  grid-column: 1 / span 12;
+// .game-detail-cover {
+//   grid-column: 1 / span 12;
 
-  @include mq.mq($from: mediumlarge) {
-    grid-column: 1 / span 6;
-  }
+//   @include mq.mq($from: mediumlarge) {
+//     grid-column: 1 / span 6;
+//   }
 
-  @include mq.mq($from: large) {
-    grid-column: 1 / span 4;
-  }
-}
+//   @include mq.mq($from: large) {
+//     grid-column: 1 / span 4;
+//   }
+// }
 
 .single-game {
   grid-column: 1 / span 12;

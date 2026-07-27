@@ -4,10 +4,11 @@
 
 .main-navigation {
 	display: block;
-	font-weight: 700;
+	// font-weight: 700;
 	font-size: 24px;
 	text-transform: uppercase;
 	font-family: $font__heading;
+	@include mixins.font-smoothing();
 
 	ul {
 		display: none;
@@ -67,7 +68,6 @@
 		display: block;
 		text-decoration: none;
 		color: $color_black;
-		font-weight: 600;
 		padding: 10px 20px;
 		
 		&:hover {
