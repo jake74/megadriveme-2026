@@ -30,9 +30,15 @@ $posts_per_page = 6;
 			'order' => 'ASC', // Ascending order
 		) );
 
+		$today_total = $today_posts->found_posts;
+		$today_count = 'count-' . $today_total;
+		if ( $today_total > 3 ) {
+			$today_count = 'more-than-three';
+		}
+
 		if ( $today_posts->have_posts() ) : ?>
 			<h1 class="section-title">Today in Mega Drive History</h1>
-			<div class="display-grid mega-drive">
+			<div class="display-grid mega-drive today <?php echo $today_count; ?>">
 				<?php while ( $today_posts->have_posts() ) : $today_posts->the_post(); 
 					$game_birthday = true;	
 				?>

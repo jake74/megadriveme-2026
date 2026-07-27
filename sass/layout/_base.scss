@@ -1,6 +1,7 @@
 @use "../mixins/mixins-master" as mixins;
 @use "../variables-site/variables-site" as *;
 @use "../mixins/mq" as mq;
+@use 'sass:color';
 
 :root {
 	--gap: 20px;
@@ -37,8 +38,13 @@ body {
 }
 
 .site {
-	padding-left: var(--gap-double);
-	padding-right: var(--gap-double);
+	padding-left: var(--gap);
+	padding-right: var(--gap);
+	
+	@include mq.mq($from: small) {
+		padding-left: var(--gap-double);
+		padding-right: var(--gap-double);
+	}
 
 	@include mq.mq($from: medium) {
 		padding-left: 0;
@@ -48,6 +54,8 @@ body {
 .site-header,
 .site-main,
 .site-footer {
+	max-width: 1400px;
+	
 	@include mq.mq($from: medium) {
 		margin-left: calc(30% + 20px);
 		width: calc(70% - 20px);

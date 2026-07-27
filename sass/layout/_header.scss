@@ -28,6 +28,7 @@
     align-items: flex-end;
     justify-content: center;
     align-self: start;
+    height: 100%;
     grid-column: 1 / span 3;
     grid-row: 1 / span 2;
 
@@ -58,6 +59,7 @@
     @include mixins.font-smoothing();
     container-type: inline-size;
 
+    align-self: end;
     grid-column: 1 / span 12;
     grid-row: 3 / span 1;
     
@@ -67,14 +69,19 @@
     }
 
     a {
+      display: block;
       text-decoration: none;
       color: $color_black;
       font-size: 4cqw;
+      line-height: 0.8;
 
       @include mq.mq($from: mediumlarge) {
-        font-size: 3cqw;
-
+        font-size: 3.125cqw;
       }
+
+      // @include mq.mq($from: xlarge) {
+      //   font-size: 32px;
+      // }
 
       &:hover {
         color: $color_md-red;

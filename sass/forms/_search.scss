@@ -1,0 +1,50 @@
+@use "../mixins/mixins-master" as mixins;
+@use "../variables-site/variables-site" as *;
+@use "../mixins/mq" as mq;
+@use 'sass:color';
+
+.search {
+  label {
+    width: 100%;
+  }
+}
+
+.searchform {
+  display: flex;
+
+  input[type="text"] {
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid color.adjust($color-md_grey, $lightness: 25%);
+    color: $color_black;
+    @include mixins.font-size(0.825);
+    outline-color: $color_md-green;
+  }
+
+  input[type="submit"] {
+    background: transparent url('assets/images/search-24px.svg') center center no-repeat;
+    background-size: 24px auto;
+    border: 0;
+    padding: 0;
+    text-indent: -9999px;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    opacity: 0.5;
+  }
+
+  &:hover {
+    input[type="text"] {
+      border-bottom-color: $color_md-grey;
+    }
+    input[type="submit"] {
+      opacity: 1;
+    }
+  }
+}
+
+.search-field {
+  width: 100%;
+}

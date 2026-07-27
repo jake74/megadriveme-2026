@@ -7,9 +7,13 @@
 .display-grid {
 	display: grid;
 	grid-template-columns: repeat(12, minmax(0, 1fr));
-	gap: var(--gap);
+	gap: var(--gap-half);
 	margin-bottom: var(--gap-double);
 	max-width: 1400px;
+
+	@include mq.mq($from: $medium) {
+		gap: var(--gap);
+	}
 
 	.game-cover {
 		display: block;
@@ -57,6 +61,12 @@
 			.entry-header {
 				transform: translateY(0);
 			}
+		}
+	}
+
+	&.today {
+		.game-cover {
+	grid-column: span 4;
 		}
 	}
 
