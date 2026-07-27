@@ -4,8 +4,6 @@
 
 .site-footer {
 	margin-top: auto;
-	margin-left: calc(30% + 20px);
-  width: calc(70% - 20px);
 
 	@include mq.mq($from: medium) {
 		@include mixins.font-size(0.75);

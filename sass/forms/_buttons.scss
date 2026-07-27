@@ -37,6 +37,8 @@ input[type="submit"] {
 	justify-content: center;
 	text-decoration: none;
 	transition: all 0.25s ease;
+	min-height: 40px;
+	font-size: 1rem;
 
 	&:hover {
 		color: white;

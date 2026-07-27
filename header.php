@@ -9,6 +9,14 @@
  * @package dekiru
  */
 
+$body_class = '';
+
+$platform = get_post_type();
+$game_title = strtolower( get_the_title() );
+$publisher = strtolower( get_field('publisher') );
+
+$body_class = 'platform-' . sanitize_title( $platform ) . ' game-' . sanitize_title( $game_title ) . ' publisher-' . sanitize_title( $publisher );
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -20,7 +28,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class( strtolower( get_field('publisher') ) ); ?>>
+<body <?php body_class( $body_class ); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'dekiru' ); ?></a>
 
@@ -38,11 +46,6 @@
 			</div>
 
 			<nav id="site-navigation" class="main-navigation">
-				<button name="menu" class="hamburger menu-toggle hamburger--squeeze" type="button" aria-controls="primary-menu" aria-expanded="false" title="Menu">
-					<span class="hamburger-box">
-						<span class="hamburger-inner"><strong>Menu</strong></span>
-					</span>
-				</button>
 
 				<?php
 					wp_nav_menu( array(
@@ -50,7 +53,7 @@
 						'menu_id'        => 'primary-menu',
 					) );
 
-					get_template_part( 'template-parts/partial', 'social' );
+					// get_template_part( 'template-parts/partial', 'social' );
 				?>
 			
 			</nav>

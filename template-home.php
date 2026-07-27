@@ -48,7 +48,7 @@ $posts_per_page = 6;
 
 		<div class="random-mega-drive">
 			<div class="section-header">
-				<h2 class="section-title">Random Mega Drive Game</h2>
+				<h2 class="section-title">Mega Drive games</h2>
 				<p><a href="<?php echo get_post_type_archive_link( 'mega-drive' ); ?>" class="view-all">All Mega Drive</a></p>
 			</div>
 			<div class="display-grid format-mega-drive">
@@ -73,7 +73,7 @@ $posts_per_page = 6;
 
 		<div class="random-mega-cd">
 			<div class="section-header">
-				<h2 class="section-title">Random Mega CD Game</h2>
+				<h2 class="section-title">Mega CD games</h2>
 				<p><a href="<?php echo get_post_type_archive_link( 'mega-cd' ); ?>" class="view-all">All Mega CD</a></p>
 			</div>
 			<div class="display-grid format-mega-drive">
@@ -98,7 +98,7 @@ $posts_per_page = 6;
 
 		<div class="random-32x">
 			<div class="section-header">
-				<h2 class="section-title">Random 32X Game</h2>
+				<h2 class="section-title">32X games</h2>
 				<p><a href="<?php echo get_post_type_archive_link( '32x' ); ?>" class="view-all">All 32X</a></p>
 			</div>
 			<div class="display-grid format-mega-drive">

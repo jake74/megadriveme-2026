@@ -5,44 +5,105 @@
 .site-header {
   position: sticky;
   top: 0;
-  left: calc(30% + 20px);
-  width: calc(70% - 20px);
   z-index: 500;
   
   .header-content {
-    background: rgba(white, 0.75);
-    backdrop-filter: blur(10px);
+    background: rgba(white, 0.5);
+    // backdrop-filter: blur(10px);
+    // mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+    border-bottom: 1px solid $color_md-light-grey;
     padding-bottom: var(--gap);
+    margin-bottom: var(--gap-double);
     display: grid;
-    column-gap: var(--gap);
-    grid-template-columns: auto 1fr;
-    grid-template-areas: 
-      "logo search"
-      "logo nav";
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+    // column-gap: var(--gap);
+    gap: var(--gap);
+    grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
   .logo {
-    grid-area: logo;
     background-color: $color_black;
-    aspect-ratio: 1/1;
-    padding: 10px;
+    // aspect-ratio: 4/3;
+    padding: var(--gap-half);
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    align-self: start;
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 2;
+
+    @include mq.mq($from: medium) {
+      grid-column: 1 / span 2;
+    }
+
+    @include mq.mq($from: mediumlarge) {
+      // grid-column: 1 / span 1;
+    }
   }
 
   .search {
-    grid-area: search;
     justify-self: end;
     align-self: end;
-    padding: var(--gap-half) var(--gap) var(--gap-half) 0;
+    grid-column: 4 / span 9;
+    grid-row: 2 / span 1;
+
+    @include mq.mq($from: medium) {
+      grid-column: 3 / span 10;
+      grid-row: 1 / span 1;
+    }
   }
 
   .main-navigation {
-    grid-area: nav;
-    justify-self: end;
-    align-self: end;
-    padding: var(--gap-half) var(--gap) var(--gap-half) 0;
+    text-transform: uppercase;
+    font-family: $font__heading;
+    @include mixins.font-smoothing();
+    container-type: inline-size;
+
+    grid-column: 1 / span 12;
+    grid-row: 3 / span 1;
+    
+    @include mq.mq($from: medium) {
+      grid-column: 3 / span 10;
+      grid-row: 2 / span 1;
+    }
+
+    a {
+      text-decoration: none;
+      color: $color_black;
+      font-size: 4cqw;
+
+      @include mq.mq($from: mediumlarge) {
+        font-size: 3cqw;
+
+      }
+
+      &:hover {
+        color: $color_md-red;
+      }
+    }
+
+
+    ul {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: var(--gap);
+
+      @include mq.mq($from: mediumlarge) {
+        // justify-content: flex-end;
+        display: grid;
+        grid-template-columns: repeat(10, minmax(0, 1fr));
+
+        li {
+          grid-column: span 3;
+
+          &:first-of-type {
+            grid-column: 2 / span 3;
+          }
+        }
+      }
+    }
   }
 }

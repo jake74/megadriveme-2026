@@ -76,8 +76,12 @@ $notes = get_field('notes');
 						?>
 						<ul>
 							<li class="back-to-covers"><a href="<?php echo get_post_type_archive_link( 'mega-drive' ); ?>"><?php echo file_get_contents( get_template_directory() . '/assets/images/cover-grid.svg' ); ?> <span>Mega Drive library</span></a></li>
-							<li class="prev"><a href="<?php echo get_permalink($prev_post->ID); ?>" title="<?php echo $prev_post->post_title; ?>"><?php echo file_get_contents( get_template_directory() . '/assets/images/nav-arrow.svg' ); ?> <span><?php echo $prev_post->post_title; ?></span></a></li>
-							<li class="next"><a href="<?php echo get_permalink($next_post->ID); ?>" title="<?php echo $next_post->post_title; ?>"><?php echo file_get_contents( get_template_directory() . '/assets/images/nav-arrow.svg' ); ?> <span><?php echo $next_post->post_title; ?></span></a></li>
+							<?php if ($prev_post ) : ?>
+								<li class="prev"><a href="<?php echo get_permalink($prev_post->ID); ?>" title="<?php echo $prev_post->post_title; ?>"><?php echo file_get_contents( get_template_directory() . '/assets/images/nav-arrow.svg' ); ?> <span><?php echo $prev_post->post_title; ?></span></a></li>
+							<?php endif; ?>
+							<?php if ($next_post) : ?>
+								<li class="next"><a href="<?php echo get_permalink($next_post->ID); ?>" title="<?php echo $next_post->post_title; ?>"><?php echo file_get_contents( get_template_directory() . '/assets/images/nav-arrow.svg' ); ?> <span><?php echo $next_post->post_title; ?></span></a></li>
+							<?php endif; ?>
 						</ul>
 					</nav>
 

@@ -110,11 +110,11 @@
 			border-radius: 6px;	
 		}
 		// flip for Sunsoft
-		body.single-mega-drive.sunsoft & {
+		body.platform-mega-drive.publisher-sunsoft:not(.game-panorama-cotton) & {
 			background-image: linear-gradient(to left, $color_black 0%, $color_black 97%, color.adjust($color_black, $lightness: 10%) 98%, color.adjust($color_black, $lightness: 20%) 99%, black 99.5%);
 		}
 
-		body.single-mega-drive & {
+		body.single-mega-drive:not(.game-sonic-knuckles) & {
 			// plastic cover effect
 			&:before {
 				content: '';
@@ -129,7 +129,7 @@
 				background-size: cover;
 				mix-blend-mode: multiply;
 
-				body.single-mega-drive.sunsoft & {
+				body.platform-mega-drive.publisher-sunsoft:not(.game-panorama-cotton) & {
 					transform: rotate(180deg);
 				}
 			}
@@ -145,7 +145,7 @@
 				left: 0;
 				background-image: linear-gradient(to right, rgba(white, 0.2) 0, rgba(white, 0.3) 1%, rgba(white, 0) 3% );
 
-				body.single-mega-drive.sunsoft & {
+				body.platform-mega-drive.publisher-sunsoft & {
 					top: 8px;
 					right: 0;
 					bottom: 8px;
@@ -180,14 +180,14 @@
 			height: 100%;
 			max-height: 56vh;
 			width: auto;
-			opacity: 0;
+			// opacity: 0;
 			// transition: all 0.5s ease-in-out;
 
 			@include mq.mq($from: mediumlarge) {
 				height: auto;
 			}
 
-			body.single-mega-drive & {
+			body.single-mega-drive:not(.game-sonic-knuckles) & {
 				border-radius: 6px;
 				border-top: 2px solid $color_black;
 				border-right: clamp(2px, 5vw, 3px) solid $color_black;
@@ -202,7 +202,7 @@
 				}
 			}
 
-			body.single-mega-drive.sunsoft & {
+			body.platform-mega-drive.publisher-sunsoft:not(.game-panorama-cotton) & {
 				border-right: 0;
 				border-left: 10px solid $color_black;
 				border-top-width: 8px;
