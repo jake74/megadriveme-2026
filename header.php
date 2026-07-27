@@ -42,7 +42,18 @@ $body_class = 'platform-' . sanitize_title( $platform ) . ' game-' . sanitize_ti
 			</a>
 
 			<div class="search">
-				<?php get_search_form(); ?>
+				<?php
+					$args = array(
+						'post_type' => array( 'post', 'page' ),
+						'echo'      => true,
+					);
+					
+					// Add custom post types to search
+					$post_types = get_post_types( array( 'public' => true, '_builtin' => false ), 'names' );
+					$args['post_type'] = array_merge( $args['post_type'], $post_types );
+					
+					get_search_form( $args['echo'] );
+				?>
 			</div>
 
 			<nav id="site-navigation" class="main-navigation">
