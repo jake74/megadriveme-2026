@@ -4,12 +4,59 @@
 
 .site-footer {
 	margin-top: auto;
+	font-size: 0.875rem;
+	line-height: 1.2;
 
-	@include mq.mq($from: medium) {
-		@include mixins.font-size(0.75);
+	.footer-content {
+    padding: var(--gap) 0;
+    margin-bottom: var(--gap-double);
+		border-top: 1px solid $color_md-light-grey;
+		display: grid;
+		gap: var(--gap);
+    grid-template-columns: repeat(12, minmax(0, 1fr));
 	}
 
 	p {
 		margin: 0;
+	}
+
+	a {
+		color: $color_md-blue;
+		text-decoration: none;
+		@include mixins.font-smoothing();
+		transition: all 0.25s ease;
+		font-weight: 600;
+
+		&:hover {
+			color: $color_md-red;
+		}
+	}
+
+	.logo {
+		grid-column: 1 / span 3;
+
+    @include mq.mq($from: medium) {
+      grid-column: 1 / span 2;
+    }
+
+    @include mq.mq($from: mediumlarge) {
+      // grid-column: 1 / span 1;
+    }
+	}
+
+	.copy {
+		grid-column: 4 / span 9;
+
+		@include mq.mq($from: medium) {
+			grid-column: 4 / span 6;
+		}
+	}
+
+	.credits {
+		grid-column: 4 / span 9;
+
+		@include mq.mq($from: medium) {
+			grid-column: 10 / span 3;
+		}
 	}
 }

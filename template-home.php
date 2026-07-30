@@ -33,7 +33,7 @@ $posts_per_page = 6;
 		$today_total = $today_posts->found_posts;
 		$today_count = 'count-' . $today_total;
 		if ( $today_total > 3 ) {
-			$today_count = 'more-than-three';
+			$today_count = 'more-than-three count-' . $today_total;
 		}
 
 		if ( $today_posts->have_posts() ) : ?>

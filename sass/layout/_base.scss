@@ -3,6 +3,12 @@
 @use "../mixins/mq" as mq;
 @use 'sass:color';
 
+.dekiru {
+	letter-spacing: 0.125em;
+	font-weight: 700;
+	font-stretch: condensed;
+}
+
 :root {
 	--gap: 20px;
 	--gap-half: calc(var(--gap) / 2);

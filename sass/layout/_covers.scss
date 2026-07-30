@@ -10,6 +10,7 @@
 	gap: var(--gap-half);
 	margin-bottom: var(--gap-double);
 	max-width: 1400px;
+	align-items: end;
 
 	@include mq.mq($from: $medium) {
 		gap: var(--gap);

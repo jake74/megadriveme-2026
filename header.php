@@ -34,9 +34,9 @@ $body_class = 'platform-' . sanitize_title( $platform ) . ' game-' . sanitize_ti
 
 	<header id="masthead" class="site-header">
 		<div class="header-content">
-			<a href="<?php echo home_url(); ?>" title="Return to the homepage" class="logo">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/megadriveme.svg"
-					width="120" height="120" alt="<?php echo get_bloginfo('name'); ?>"
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( 'Return to the homepage', 'dekiru' ); ?>" class="logo">
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/megadriveme.svg' ); ?>"
+					width="120" height="120" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
 					class="logo-image"
 				>
 			</a>
