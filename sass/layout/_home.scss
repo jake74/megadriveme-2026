@@ -66,6 +66,7 @@ body[class*="home"] {
     }
     
     @include mq.mq($from: $mediumlarge) {
+      font-size: 3cqw;
 
     }
   }
@@ -80,9 +81,9 @@ body[class*="home"] {
     @include mq.mq($from: $small) {
       grid-column: 9 / span 4;
 
-      span {
-        display: inline;
-      }
+      // span {
+      //   display: inline;
+      // }
     }
 
     @include mq.mq($from: $mediumlarge) {
