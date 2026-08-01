@@ -19,6 +19,7 @@ body[class*="home"] {
     grid-column: 1 / span 6;
     margin-bottom: var(--gap-double);
     font-size: 0.875rem;
+    container-type: inline-size;
 
     @include mq.mq($from: $medium) {
       grid-column: 1 / span 6;
@@ -26,28 +27,70 @@ body[class*="home"] {
   }
 
   .section-header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    gap: var(--gap-half);
+    grid-template-columns: repeat(12, minmax(0, 1fr));
     align-items: center;
-    container-type: inline-size;
+    margin-bottom: var(--gap);
+
+    @include mq.mq($from: $medium) {
+      gap: var(--gap);
+    }
+
   }
   
   .section-title {
     font-weight: 200;
     margin-bottom: var(--gap);
     line-height: 1;
-    font-size: 6cqw;
+    font-size: 5cqw;
+    grid-column: 1 / span 6;
+    margin: 0;
 
     @include mq.mq($from: $medium) {
       font-size: 3cqw;
+      grid-column: 1 / span 8;
+    }
+    @include mq.mq($from: $mediumlarge) {
+
     }
   }
 
   h2.section-title {
-    font-size: 6cqw;
+    font-size: 5cqw;
+    grid-column: 1 / span 6;
 
     @include mq.mq($from: $medium) {
       font-size: 4cqw;
+      grid-column: 1 / span 8;
+    }
+    
+    @include mq.mq($from: $mediumlarge) {
+
+    }
+  }
+
+  .view-all {
+    grid-column: 7 / span 6;
+
+    span {
+      display: none;
+    }
+
+    @include mq.mq($from: $small) {
+      grid-column: 9 / span 4;
+
+      span {
+        display: inline;
+      }
+    }
+
+    @include mq.mq($from: $mediumlarge) {
+      grid-column: 10 / span 3;
+    }
+
+    @include mq.mq($from: $mediumlarge) {
+      grid-column: 11 / span 2;
     }
   }
 
