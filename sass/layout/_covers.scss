@@ -29,11 +29,11 @@
 		grid-column: span 4;
 
 		@include mq.mq($from: $small) {
-			grid-column: span 3;
+			grid-column: span 4;
 		}
 
 		@include mq.mq($from: $medium) {
-			grid-column: span 2;
+			grid-column: span 4;
 		}
 
 		@include mq.mq($from: $mediumlarge) {
@@ -67,7 +67,7 @@
 
 	&.today {
 		.game-cover {
-	grid-column: span 4;
+			grid-column: span 4;
 		}
 	}
 

@@ -9,6 +9,8 @@ License URI: LICENSE
 Text Domain: dekiru
 */
 
+@use 'typography/fonts';
+
 // Load variables globally for backward compatibility
 @use 'variables-site/variables-site' as *;
 
@@ -36,8 +38,10 @@ Text Domain: dekiru
 @use 'layout/base';
 @use 'layout/header';
 @use 'layout/home';
+@use 'layout/showcase';
 @use 'layout/covers';
 @use 'layout/game-cover';
+@use 'layout/game-list-page';
 @use 'layout/game-page';
 @use 'layout/footer';
 	

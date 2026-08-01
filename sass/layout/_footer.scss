@@ -14,6 +14,7 @@
 		display: grid;
 		gap: var(--gap);
     grid-template-columns: repeat(12, minmax(0, 1fr));
+		align-items: start;
 	}
 
 	p {
@@ -24,7 +25,6 @@
 		color: $color_md-blue;
 		text-decoration: none;
 		@include mixins.font-smoothing();
-		transition: all 0.25s ease;
 		font-weight: 600;
 
 		&:hover {
@@ -32,31 +32,53 @@
 		}
 	}
 
-	.logo {
+	.footer-logo {
+    background-color: $color_black;
+		padding: 0.5vw;
 		grid-column: 1 / span 3;
+		grid-row: 1 / span 2;
 
     @include mq.mq($from: medium) {
       grid-column: 1 / span 2;
     }
 
     @include mq.mq($from: mediumlarge) {
-      // grid-column: 1 / span 1;
+      grid-column: 1 / span 1;
+			padding: 0.125vw;
     }
 	}
 
 	.copy {
 		grid-column: 4 / span 9;
+		grid-row: 1 / span 1;
 
 		@include mq.mq($from: medium) {
 			grid-column: 4 / span 6;
+		}
+
+		@include mq.mq($from: mediumlarge) {
+			grid-column: 4 / span 5;
+		}
+
+		@include mq.mq($from: large) {
+			grid-column: 3 / span 6;
 		}
 	}
 
 	.credits {
 		grid-column: 4 / span 9;
+		grid-row: 2 / span 1;
 
 		@include mq.mq($from: medium) {
 			grid-column: 10 / span 3;
+		}
+
+		@include mq.mq($from: mediumlarge) {
+			grid-column: 9 / span 4;
+		}
+
+		@include mq.mq($from: large) {
+			grid-column: 9 / span 4;
 		}
 	}
 }

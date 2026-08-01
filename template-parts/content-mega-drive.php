@@ -3,11 +3,15 @@
 // used as archive/index list
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('game-cover'); ?>>
 
 	<a class="post-thumbnail md-cover game-cover" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 		
-		<?php the_post_thumbnail( 'md_cover', array( 'alt' => the_title_attribute( array( 'echo' => false, ) ), ) ); ?>
+		<?php if ( has_post_thumbnail() ) :
+			the_post_thumbnail( 'md_cover', array( 'alt' => the_title_attribute( array( 'echo' => false, ) ), ) );
+		else :
+			get_template_part( 'template-parts/showcase' );
+		endif; ?>
 
 		<header class="entry-header">
 			<?php

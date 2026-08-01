@@ -24,25 +24,35 @@ get_header(); ?>
 		<div class="">
 
 			<?php
+
+			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+			$args = array(
+					'post_type' => 'mega-drive',
+					'orderby'   => 'date',
+					'order'     => 'ASC', // Change to DESC to reverse
+					'paged'     => $paged,
+					// 'posts_per_page' => 12,
+			);
+			$library = new WP_Query( $args );
 			
-			if ( have_posts() ) : ?>
+			if ( $library->have_posts() ) : ?>
 
 				<header class="page-header">
 					<?php
 					the_archive_title( '<h1 class="page-title screen-reader-text">', '</h1>' );
 					// the_archive_description( '<div class="archive-description">', '</div>' );
 					?>
-					<h1 class="page-title">Mega Drive<br/>
-					メガ ドライブ</h1>
+					<h1 class="page-title">メガ ドライブ</h1>
+					<h2 class="page-subtitle">Mega Drive</h2>
 				</header>
 
-				<?php the_posts_navigation(); ?>
+				<?php the_posts_navigation( array( 'total' => $library->max_num_pages ) ); ?>
 
 				<div class="display-grid format-mega-drive">
 				<?php
 				/* Start the Loop */
-				while ( have_posts() ) :
-					the_post();
+				while ( $library->have_posts() ) :
+					$library->the_post();
 
 					/*
 					* Include the Post-Type-specific template for the content.

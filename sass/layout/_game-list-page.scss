@@ -1,0 +1,26 @@
+@use "../mixins/mixins-master" as mixins;
+@use "../variables-site/variables-site" as *;
+@use "../mixins/mq" as mq;
+@use 'sass:color';
+
+.page-header {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	gap: var(--gap-half);
+  align-items: end;
+}
+
+.page-title {
+  grid-column: 1 / span 6;
+  letter-spacing: 0;
+  font-size: 4cqw;
+
+}
+
+.page-subtitle {
+  font-size: 4cqw;
+  letter-spacing: 0;
+  font-weight: 300;
+  grid-column: 7 / span 6;
+  color: $color_md-light-grey;
+}

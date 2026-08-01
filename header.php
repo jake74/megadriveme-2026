@@ -10,13 +10,16 @@
  */
 
 $body_class = '';
-
+$game_title = '';
+$publisher = '';
 $platform = get_post_type();
-$game_title = strtolower( get_the_title() );
-$publisher = strtolower( get_field('publisher') );
+$post_type = get_post_type();
 
-$body_class = 'platform-' . sanitize_title( $platform ) . ' game-' . sanitize_title( $game_title ) . ' publisher-' . sanitize_title( $publisher );
-
+if ( $post_type === 'mega-drive' || $post_type === 'mega-cd' || $post_type === '32x' ) {
+	$game_title = strtolower( get_the_title() );
+	$publisher = strtolower( get_field('publisher') );
+	$body_class = 'platform-' . sanitize_title( $platform ) . ' game-' . sanitize_title( $game_title ) . ' publisher-' . sanitize_title( $publisher );
+}
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -35,10 +38,7 @@ $body_class = 'platform-' . sanitize_title( $platform ) . ' game-' . sanitize_ti
 	<header id="masthead" class="site-header">
 		<div class="header-content">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( 'Return to the homepage', 'dekiru' ); ?>" class="logo">
-				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/megadriveme.svg' ); ?>"
-					width="120" height="120" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
-					class="logo-image"
-				>
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/megadriveme.svg' ); ?>" width="120" height="120" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="logo-image" loading="lazy">
 			</a>
 
 			<div class="search">

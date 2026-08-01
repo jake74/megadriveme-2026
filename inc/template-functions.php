@@ -43,9 +43,11 @@ add_action( 'wp_head', 'dekiru_pingback_header' );
 // add_action('admin_enqueue_scripts', 'admin_style');
 
 // ACF options page
-if( function_exists('acf_add_options_page') ) {
-	acf_add_options_page();
-}
+add_action('acf/init', function() {
+	if( function_exists('acf_add_options_page') ) {
+		acf_add_options_page();
+	}
+});
 
 //Page Slug Body Class
 function add_slug_body_class( $classes ) {

@@ -52,6 +52,14 @@ $posts_per_page = 6;
 		endif;
 		?>
 
+	<?php if ( get_the_content() ) : ?>
+		<div class="intro">
+			<div class="intro-content">
+				<?php the_content(); ?>
+			</div>
+		</div>
+	<?php endif; ?>
+
 		<div class="random-mega-drive">
 			<div class="section-header">
 				<h2 class="section-title">Mega Drive games</h2>

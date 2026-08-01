@@ -37,7 +37,6 @@ $comment = get_field('comment');
 $notes = get_field('notes');
 ?>
 
-
 	<div class="game-detail-cover aside">
 		<div class="cover-wrapper">
 			<div class="game-case">
