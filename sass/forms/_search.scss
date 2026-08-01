@@ -12,7 +12,14 @@
 }
 
 .searchform {
-  display: flex;
+  width: 100%;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
 
   input[type="text"] {
     flex: 1;
