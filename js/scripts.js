@@ -5,6 +5,26 @@
 //   }
 // };
 
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof Swiper === 'undefined') {
+    return;
+  }
+
+  new Swiper('.showcase-content', {
+    direction: 'horizontal',
+    loop: true,
+    speed: 1000,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true,
+    },
+  });
+});
+
 function hex2rgb($hex) {
   var hex_color = $hex
     , pattern_color = "^#([A-Fa-f0-9]{6})$";

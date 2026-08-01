@@ -1,25 +1,3 @@
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  if (typeof Swiper === 'undefined') {
-    return;
-  }
-
-  new Swiper('.showcase-content', {
-    direction: 'horizontal',
-    loop: true,
-    speed: 1000,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    effect: 'fade',
-    fadeEffect: {
-      crossFade: true,
-    },
-  });
-});
-</script>
-
 <div class="showcase aside">
   <div class="showcase-content">
     
