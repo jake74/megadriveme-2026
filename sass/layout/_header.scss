@@ -29,8 +29,12 @@
     justify-content: center;
     align-self: start;
     height: 100%;
-    grid-column: 1 / span 3;
+    grid-column: 1 / span 4;
     grid-row: 1 / span 2;
+
+    @include mq.mq($from: small) {
+      grid-column: 1 / span 3;
+    }
 
     @include mq.mq($from: medium) {
       grid-column: 1 / span 2;
