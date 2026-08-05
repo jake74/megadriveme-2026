@@ -36,7 +36,6 @@ body[class*="home"] {
     @include mq.mq($from: $medium) {
       gap: var(--gap);
     }
-
   }
   
   .section-title {
@@ -45,7 +44,8 @@ body[class*="home"] {
     line-height: 1;
     font-size: 5cqw;
     grid-column: 1 / span 6;
-    margin: 0;
+    // margin: 0;
+
 
     @include mq.mq($from: $medium) {
       font-size: 3cqw;
@@ -59,6 +59,7 @@ body[class*="home"] {
   h2.section-title {
     font-size: 5cqw;
     grid-column: 1 / span 6;
+    margin: 0;
 
     @include mq.mq($from: $medium) {
       font-size: 4cqw;
