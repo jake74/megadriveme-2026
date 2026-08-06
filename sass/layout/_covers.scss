@@ -21,7 +21,7 @@
 		position: relative;
 		// z-index: -1;
 		// height: 0;
-		background: color.adjust($color-md_grey, $lightness: 50%) url('assets/images/megadriveme-white-keyline.svg') center center no-repeat;
+		background: color.adjust($color-md_grey, $lightness: 40%) url('assets/images/megadriveme-white-keyline.svg') center center no-repeat;
 		background-size: 56px 40px;
 		overflow: hidden;
 		color: white;
@@ -99,7 +99,7 @@
 	.entry-header {
 		display: block;
 		position: absolute;
-		bottom: 0;
+		bottom: -1px;
 		left: 0;
 		width: 100%;
 		z-index: +1;
