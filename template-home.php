@@ -100,7 +100,7 @@ $posts_per_page = 6;
 
 				if ( $random_game->have_posts() ) :
 					while ( $random_game->have_posts() ) : $random_game->the_post(); 
-						get_template_part( 'template-parts/card', 'game-cover' );
+						get_template_part( 'template-parts/card', 'game-cover', array( 'post_type' => 'mega-cd' ) );
 					endwhile;
 					wp_reset_postdata();
 				else :

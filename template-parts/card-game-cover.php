@@ -1,4 +1,9 @@
-<?php if (get_post_type() === 'mega-drive') : ?>
+<?php
+$post_type = get_post_type();
+// echo $post_type;
+?>
+
+<?php if ($post_type === 'mega-drive') : ?>
   <a href="<?php the_permalink(); ?>" class="cover-md game-cover">
     <?php the_post_thumbnail( 'showcase', array( 'alt' => the_title_attribute( array( 'echo' => false, ) ), ) ); ?>
     <div class="entry-header">
@@ -6,21 +11,21 @@
       the_title( '<p class="entry-title">', '</p>' ); ?>
     </div>
   </a>
-<?php elseif (get_post_type() === 'mega-cd') : ?>
+<?php elseif ($post_type === 'mega-cd') : ?>
   <a href="<?php the_permalink(); ?>" class="cover-mega-cd game-cover">
-    <?php the_post_thumbnail( 'showcase', array( 'alt' => the_title_attribute( array( 'echo' => false, ) ), ) ); ?>
+    <?php the_post_thumbnail( 'showcase_cd', array( 'alt' => the_title_attribute( array( 'echo' => false, ) ), ) ); ?>
     <div class="entry-header">
       <?php the_title( '<p class="entry-title">', '</p>' );?>
     </div>
   </a>
-<?php elseif (get_post_type() === '32x') : ?>
+<?php elseif ($post_type === '32x') : ?>
   <a href="<?php the_permalink(); ?>" class="cover-32x game-cover">
     <?php the_post_thumbnail( 'showcase', array( 'alt' => the_title_attribute( array( 'echo' => false, ) ), ) ); ?>
     <div class="entry-header">
       <?php the_title( '<p class="entry-title">', '</p>' );?>
     </div>
   </a>
-<?php elseif (get_post_type() === 'hardware') : ?>
+<?php elseif ($post_type === 'hardware') : ?>
   <a href="<?php the_permalink(); ?>" class="cover-hardware game-cover">
     <?php the_post_thumbnail( 'showcase', array( 'alt' => the_title_attribute( array( 'echo' => false, ) ), ) ); ?>
     <div class="entry-header">
