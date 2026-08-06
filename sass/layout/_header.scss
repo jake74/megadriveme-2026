@@ -79,6 +79,9 @@
       font-size: 32px;
       font-size: 4cqw;
       line-height: 0.8;
+      padding-top: var(--gap-half);
+      border-top: 5px solid transparent;
+      transition: border-top-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
       @include mq.mq($from: mediumlarge) {
         font-size: 3.125cqw;
@@ -89,8 +92,14 @@
       // }
 
       &:hover {
-        color: $color_md-red;
+        border-top-color: $color_md-green;
+        color: $color_md-green;
       }
+    }
+
+    .current-menu-item > a {
+      border-top-color: $color_md-red;
+      color: $color_md-red;
     }
 
 
