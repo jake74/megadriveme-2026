@@ -69,6 +69,17 @@
 		.game-cover {
 			grid-column: span 4;
 		}
+
+
+		&.count-4 {
+			.game-cover {
+				grid-column: span 3;
+
+				@include mq.mq($from: $mediumlarge) {
+					grid-column: span 3;
+				}
+			}
+		}
 	}
 
 	.entry-header {
