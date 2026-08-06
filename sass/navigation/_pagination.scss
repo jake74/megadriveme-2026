@@ -1,0 +1,56 @@
+@use "../mixins/mixins-master" as mixins;
+@use "../variables-site/variables-site" as *;
+@use "../mixins/mq" as mq;
+@use 'sass:color';
+
+.posts-navigation {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--gap);
+  margin-bottom: var(--gap);
+}
+
+.nav-links {
+  grid-column: 12 / span 1;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
+
+  > * {
+    grid-column: span 1;
+  }
+
+  a {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 22/40;
+    // background: url(assets/images/nav-arrow.svg) center center no-repeat;
+    // background-size: 100% auto;
+    background-color: $color_black;
+    text-indent: -9999px;
+    mask-image: url(assets/images/nav-arrow.svg);
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: 100% auto;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $color_md-green;
+    }
+  }
+}
+
+.nav-next {
+  grid-column: 1 /span 1;
+  grid-row: 1;
+
+  a {
+    transform: scaleX(-1);
+  }
+}
+
+.nav-previous {
+  grid-row: 1;
+  grid-column: 2 /span 1;
+}

@@ -27,7 +27,7 @@ get_header(); ?>
 
 			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 			$args = array(
-					'post_type' => 'mega-drive',
+					'post_type' => 'mega-cd',
 					'orderby'   => 'date',
 					'order'     => 'ASC', // Change to DESC to reverse
 					'paged'     => $paged,
@@ -43,12 +43,12 @@ get_header(); ?>
 					// the_archive_description( '<div class="archive-description">', '</div>' );
 					?>
 					<h1 class="page-title">メガ ドライブ</h1>
-					<h2 class="page-subtitle">Mega Drive</h2>
+					<h2 class="page-subtitle">Mega CD</h2>
 				</header>
 
 				<?php the_posts_navigation( array( 'total' => $library->max_num_pages ) ); ?>
 
-				<div class="display-grid format-mega-drive">
+				<div class="display-grid format-mega-cd">
 					<?php
 					/* Start the Loop */
 					while ( $library->have_posts() ) :
