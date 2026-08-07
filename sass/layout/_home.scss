@@ -3,7 +3,7 @@
 @use "../mixins/mq" as mq;
 @use 'sass:color';
 
-body[class*="home"] {
+.cabinet-content {
 
   .intro {
     display: grid;
@@ -48,6 +48,7 @@ body[class*="home"] {
     line-height: 1;
     font-size: 5cqw;
     grid-column: 1 / span 6;
+    letter-spacing: 0.025em;
     // margin: 0;
 
 
@@ -64,6 +65,7 @@ body[class*="home"] {
     font-size: 5cqw;
     grid-column: 1 / span 6;
     margin: 0;
+    letter-spacing: 0.025em;
 
     @include mq.mq($from: $medium) {
       font-size: 4cqw;

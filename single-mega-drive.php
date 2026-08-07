@@ -28,6 +28,7 @@ $btn6 = get_field('btn6');
 $multi_tap = get_field('multi_tap');
 $modem = get_field('modem');
 $mouse = get_field('mouse');
+$xe1ap = get_field('xe1ap');
 
 $euro_title = get_field('euro');
 $usa_title = get_field('usa');

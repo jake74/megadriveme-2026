@@ -38,7 +38,7 @@ if ( $post_type === 'mega-drive' || $post_type === 'mega-cd' || $post_type === '
 	<header id="masthead" class="site-header">
 		<div class="header-content">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( 'Return to the homepage', 'dekiru' ); ?>" class="logo">
-				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/megadriveme.svg' ); ?>" width="120" height="120" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="logo-image" loading="lazy">
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/megadriveme.svg' ); ?>" width="132" height="86" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="logo-image" loading="lazy">
 			</a>
 
 			<div class="search">

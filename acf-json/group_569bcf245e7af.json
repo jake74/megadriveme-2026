@@ -222,6 +222,85 @@
             "selected": 0
         },
         {
+            "key": "field_6a763dcbfe804",
+            "label": "Genre",
+            "name": "genre",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "act": "ACT – Action",
+                "adv": "ADV – Adventure",
+                "edu": "EDU – Education",
+                "pzl": "PZL – Puzzle",
+                "rcg": "RCG – Racing",
+                "rpg": "RPG – Role Playing Game",
+                "sht": "SHT – Shoot 'em up",
+                "spt": "SPT – Sport",
+                "slg": "SLG – Strategy",
+                "tbl": "TBL – Recreational"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_6a763b35cbe0d",
+            "label": "Catalog no",
+            "name": "catalog_no",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6a763d8865e09",
+            "label": "Price",
+            "name": "price",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_2",
             "label": "Memory",
             "name": "memory",
@@ -231,7 +310,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -250,17 +329,58 @@
                 "24M": "24M",
                 "40M": "40M"
             },
-            "default_value": [],
-            "allow_null": 1,
+            "default_value": false,
+            "return_format": "value",
             "multiple": 0,
+            "allow_null": 1,
+            "allow_in_bindings": 1,
             "ui": 0,
             "ajax": 0,
             "placeholder": "",
-            "disabled": 0,
-            "readonly": 0,
-            "return_format": "value",
             "create_options": 0,
             "save_options": 0
+        },
+        {
+            "key": "field_6a763d38f7c2f",
+            "label": "Developer",
+            "name": "developer",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6a763ca79a2d1",
+            "label": "Publisher",
+            "name": "publisher",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "SEGA",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_6",
@@ -527,5 +647,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1785088757
+    "modified": 1786134210
 }

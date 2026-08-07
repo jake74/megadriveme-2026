@@ -17,7 +17,7 @@ $credits = get_field('credits', 'options');
 	<footer class="site-footer" role="contentinfo">
 		<div class="footer-content">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( 'Return to the homepage', 'dekiru' ); ?>" class="footer-logo">
-				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/megadriveme.svg' ); ?>" width="120" height="120" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="logo-image" loading="lazy">
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/megadriveme.svg' ); ?>" width="132" height="86" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="logo-image" loading="lazy">
 			</a>
 
 			<div class="copy">
