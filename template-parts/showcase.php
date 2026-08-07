@@ -1,9 +1,31 @@
-<div class="showcase aside">
+<?php
+$post_type = get_post_type();
+echo $post_type;
+
+if ($post_type === 'mega-drive') {
+  $showcase_photos = 'mega_drive_showcase';
+} elseif ($post_type === 'mega-cd') {
+  $showcase_photos = 'mega_cd_showcase';
+} elseif ($post_type === '32x') {
+  $showcase_photos = '32x_showcase';
+} else {
+  $showcase_photos = 'showcase_all';
+}
+
+$image_size = 'showcase';
+
+if ($post_type === 'mega-cd') {
+  $image_size = 'showcase_cd';
+}
+
+?>
+
+<div class="showcase aside <?php echo $post_type; ?>">
   <div class="showcase-content">
     
     <div class="swiper-wrapper">
       <?php 
-        $showcase = get_field( 'mega_drive_showcase', 'options');
+        $showcase = get_field( $showcase_photos, 'options');
         if($showcase) :
           //randomise the showcase
           shuffle( $showcase );
@@ -17,15 +39,18 @@
               $link = $game_link['url'];
             }
 
-            $alt = $image['alt'];
+            // $alt = $image['alt'];
 
-            if ($alt == '') {
-              $alt = $image['title'];
-            }
+            // if ($alt == '') {
+            //   $alt = $image['title'];
+            // }
+
+            // print_r($image);
+            // echo $image['id'];
         ?>
         <div class="swiper-slide">
           <?php if($link) : ?><a href="<?php echo $link; ?>"><?php endif; ?>
-            <?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'alt' => $alt ) ); ?>
+            <?php echo wp_get_attachment_image( $image['ID'], $image_size, false, array( 'loading' => 'lazy' ) ); ?>
           <?php if($link) : ?></a><?php endif; ?>
         </div>
         <?php 

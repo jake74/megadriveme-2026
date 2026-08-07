@@ -25,6 +25,17 @@ get_header(); ?>
 
 			<?php
 
+			$game_covers = new WP_Query( array(
+				'post_type' => 'mega-drive',
+				'posts_per_page' => -1,
+				'meta_query' => array(
+					array(
+						'key' => '_thumbnail_id',
+					),
+				),
+			) );
+			wp_reset_postdata();
+
 			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 			$args = array(
 					'post_type' => 'mega-drive',
@@ -33,6 +44,9 @@ get_header(); ?>
 					'paged'     => $paged,
 					// 'posts_per_page' => 12,
 			);
+
+			$total_posts = wp_count_posts( 'mega-drive' )->publish;
+
 			$library = new WP_Query( $args );
 			
 			if ( $library->have_posts() ) : ?>
@@ -44,8 +58,10 @@ get_header(); ?>
 					?>
 					<h1 class="page-title" lang="ja">メガ ドライブ</h1>
 					<h2 class="page-subtitle">Mega Drive</h2>
-				</header>
 
+				</header>
+				
+				<?php echo '<div class="total-posts"><p>In collection: ' . $game_covers->found_posts . ' of ' . $total_posts . '</p></div>'; ?>
 				<?php the_posts_navigation( array( 'total' => $library->max_num_pages ) ); ?>
 
 				<div class="display-grid format-mega-drive">

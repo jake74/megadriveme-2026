@@ -26,7 +26,7 @@ get_header(); ?>
 			<?php
 
 			$game_covers = new WP_Query( array(
-				'post_type' => 'mega-cd',
+				'post_type' => '32x',
 				'posts_per_page' => -1,
 				'meta_query' => array(
 					array(
@@ -38,7 +38,7 @@ get_header(); ?>
 
 			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 			$args = array(
-					'post_type' => 'mega-cd',
+					'post_type' => '32x',
 					'orderby'   => 'date',
 					'order'     => 'ASC', // Change to DESC to reverse
 					'paged'     => $paged,
@@ -46,7 +46,7 @@ get_header(); ?>
 			);
 			$library = new WP_Query( $args );
 
-			$total_posts = wp_count_posts( 'mega-cd' )->publish;
+			$total_posts = wp_count_posts( '32x' )->publish;
 			
 			if ( $library->have_posts() ) : ?>
 
@@ -55,15 +55,15 @@ get_header(); ?>
 					the_archive_title( '<h1 class="page-title screen-reader-text">', '</h1>' );
 					// the_archive_description( '<div class="archive-description">', '</div>' );
 					?>
-					<h1 class="page-title" lang="ja">メガ CD</h1>
-					<h2 class="page-subtitle">Mega CD</h2>
+					<h1 class="page-title" lang="ja">スーパー 32X</h1>
+					<h2 class="page-subtitle">Super 32X</h2>
 
 				</header>
 				
 				<?php echo '<div class="total-posts"><p>In collection: ' . $game_covers->found_posts . ' of ' . $total_posts . '</p></div>'; ?>
 				<?php the_posts_navigation( array( 'total' => $library->max_num_pages ) ); ?>
 
-				<div class="display-grid format-mega-cd">
+				<div class="display-grid format-32x">
 					<?php
 					/* Start the Loop */
 					while ( $library->have_posts() ) :

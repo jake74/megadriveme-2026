@@ -3,6 +3,93 @@
     "title": "Options",
     "fields": [
         {
+            "key": "field_6a75d460d2936",
+            "label": "Showcase (all)",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_6a75d48c237c2",
+            "label": "Showcase all",
+            "name": "showcase_all",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add image",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6a75d48c237c3",
+                    "label": "Image",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 1,
+                    "preview_size": "medium",
+                    "parent_repeater": "field_6a75d48c237c2"
+                },
+                {
+                    "key": "field_6a75d48c237c4",
+                    "label": "Game link",
+                    "name": "game_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 1,
+                    "parent_repeater": "field_6a75d48c237c2"
+                }
+            ]
+        },
+        {
             "key": "field_5eb068d2898d4",
             "label": "Mega Drive showcase",
             "name": "",
@@ -139,9 +226,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "",
-                    "preview_size": "medium",
-                    "library": "",
+                    "return_format": "array",
+                    "library": "all",
                     "min_width": "",
                     "min_height": "",
                     "min_size": "",
@@ -149,6 +235,8 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "",
+                    "allow_in_bindings": 1,
+                    "preview_size": "medium",
                     "parent_repeater": "field_5eb127df57577"
                 },
                 {
@@ -272,9 +360,9 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": false,
+    "show_in_rest": 0,
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1784818160
+    "modified": 1786107951
 }
