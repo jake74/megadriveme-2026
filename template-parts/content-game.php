@@ -27,9 +27,9 @@ if ( $post_type === 'mega-cd' ) {
 		<header class="entry-header">
 			<?php
 			if ( is_singular() ) :
-				the_title( '<h1 class="entry-title">', '</h1>' );
+				the_title( '<p class="entry-title">', '</p>' );
 			else :
-				the_title( '<h2 class="entry-title">', '</h2>' );
+				the_title( '<p class="entry-title">', '</p>' );
 			endif;
 
 			if ( 'post' === get_post_type() ) :

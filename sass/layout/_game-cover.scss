@@ -58,12 +58,17 @@
       height: 40px;
       position: absolute;
 			z-index: +1;
-      bottom: 1vh;
-      right: 1vh;
+      bottom: 2vh;
+      right: 2vh;
       opacity: 0;
       pointer-events: none;
 			transition: all 1.5s ease-in-out;
 			transition-delay: 1s;
+
+			@include mq.mq($from: large) {
+				bottom: 1vh;
+				right: 1vh;
+			}
     }
   }
 

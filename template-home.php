@@ -11,6 +11,14 @@ $game_birthday = false;
 
 $posts_per_page = 6;
 
+$month = date( 'n', current_time( 'timestamp' ) );
+$day = date( 'j', current_time( 'timestamp' ) );
+
+$user_month = date( 'n' );
+$user_day = date( 'j' );
+
+
+
 ?>
 
 <main id="main" class="site-main">
@@ -21,8 +29,8 @@ $posts_per_page = 6;
 			'post_type' => array( 'mega-drive', '32x', 'mega-cd', 'hardware' ),
 			'date_query' => array(
 				array(
-					'month' => date( 'n', current_time( 'timestamp' ) ),
-					'day'   => date( 'j', current_time( 'timestamp' ) ),
+					'month' => $user_month,
+					'day'   => $user_day,
 				),
 			),
 			'posts_per_page' => -1, // Set to a specific number or -1 to show all
@@ -71,6 +79,11 @@ $posts_per_page = 6;
 					'post_type' => 'mega-drive',
 					'orderby' => 'rand',
 					'posts_per_page' => $posts_per_page,
+					'meta_query' => array(
+						array(
+							'key' => '_thumbnail_id',
+						),
+					),
 				) );
 
 				if ( $random_game->have_posts() ) :
@@ -96,6 +109,11 @@ $posts_per_page = 6;
 					'post_type' => 'mega-cd',
 					'orderby' => 'rand',
 					'posts_per_page' => $posts_per_page,
+					'meta_query' => array(
+						array(
+							'key' => '_thumbnail_id',
+						),
+					),
 				) );
 
 				if ( $random_game->have_posts() ) :
@@ -112,8 +130,8 @@ $posts_per_page = 6;
 
 		<div class="random-32x">
 			<div class="section-header">
-				<h2 class="section-title">32X games</h2>
-				<a href="<?php echo get_post_type_archive_link( '32x' ); ?>" class="view-all"><span>All&nbsp;</span>32X</a>
+				<h2 class="section-title">Super 32X games</h2>
+				<a href="<?php echo get_post_type_archive_link( '32x' ); ?>" class="view-all"><span>All&nbsp;</span>Super 32X</a>
 			</div>
 			<div class="display-grid format-mega-drive">
 				<?php
@@ -121,6 +139,11 @@ $posts_per_page = 6;
 					'post_type' => '32x',
 					'orderby' => 'rand',
 					'posts_per_page' => $posts_per_page,
+					'meta_query' => array(
+						array(
+							'key' => '_thumbnail_id',
+						),
+					),
 				) );
 
 				if ( $random_game->have_posts() ) :

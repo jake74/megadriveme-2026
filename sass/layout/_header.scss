@@ -72,6 +72,11 @@
       grid-row: 2 / span 1;
     }
 
+    .current-menu-item > a {
+      border-top-color: $color_md-red;
+      color: $color_md-red;
+    }
+
     a {
       display: block;
       text-decoration: none;
@@ -95,11 +100,6 @@
         border-top-color: $color_md-green;
         color: $color_md-green;
       }
-    }
-
-    .current-menu-item > a {
-      border-top-color: $color_md-red;
-      color: $color_md-red;
     }
 
 
@@ -127,4 +127,13 @@
       }
     }
   }
+}
+
+
+// set the parent menu item to red for the current post type
+body.single-mega-drive .main-navigation li.mega-drive a,
+body.single-mega-cd .main-navigation li.mega-cd a,
+body.single-32x .main-navigation li._32x a {
+  border-top-color: $color_md-red;
+  color: $color_md-red;
 }

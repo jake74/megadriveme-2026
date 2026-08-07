@@ -57,7 +57,7 @@ $notes = get_field('notes');
 
 		<div class="single-game">
 			<?php
-				$random = (rand(0,40)/10) - 2;
+				$random = (rand(0,40)/10) - 1.5;
 				// echo $random;
 				echo '<style>';
 				echo ':root { --rotate: ' . $random . 'deg; }';

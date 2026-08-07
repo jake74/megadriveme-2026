@@ -22,6 +22,10 @@ body[class*="home"] {
     container-type: inline-size;
 
     @include mq.mq($from: $medium) {
+      grid-column: 1 / span 9;
+    }
+
+    @include mq.mq($from: $mediumlarge) {
       grid-column: 1 / span 6;
     }
   }
@@ -91,7 +95,7 @@ body[class*="home"] {
       grid-column: 10 / span 3;
     }
 
-    @include mq.mq($from: $mediumlarge) {
+    @include mq.mq($from: $large) {
       grid-column: 11 / span 2;
     }
   }

@@ -99,7 +99,7 @@ global $wp_meta_boxes;
 
 
 function move_yoast_to_bottom() {
-    return 'low';
+  return 'low';
 }
 add_filter( 'wpseo_metabox_prio', 'move_yoast_to_bottom');
 

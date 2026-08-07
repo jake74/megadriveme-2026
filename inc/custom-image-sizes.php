@@ -25,5 +25,5 @@ add_image_size('watermarked', 500);
 add_image_size('post_header', 590, 215, true);
 
 // showcase
-add_image_size('showcase', 800, 2000, true);
+add_image_size('showcase', 0, 2000, true);
 add_image_size('showcase_cd', 800, 800, true);
