@@ -80,14 +80,29 @@ body {
 }
 
 .aside {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100dvh;
-	display: none;
+	// display: none;
+	// @include mixins.explode-width();
+	// width: 100vw;
+	// margin-left: -50vw;
+	// margin-right: -50vw;
+	// left: 50%;
+  // right: 50%;
+	margin-left: calc(var(--gap) * -1);
+	margin-right: calc(var(--gap) * -1);
+	z-index: 1;
+	width: calc(100% + (var(--gap) * 2));
+	height: 50dvh;
+	position: relative;
 
 	@include mq.mq($from: medium) {
+		margin-left: unset;
+		margin-right: unset;
+		
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100dvh;
 		display: block;
 		width: calc(30% - var(--gap));
 	}
@@ -101,6 +116,8 @@ img,
 iframe,
 video {
 	display: block;
+	width: 100%;
+	height: auto;
 }
 
 .hidden {

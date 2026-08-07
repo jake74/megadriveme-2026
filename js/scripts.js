@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('click', function(e) {
     if (e.target.closest('.game-case')) {
       document.querySelector('.game-detail-cover').classList.toggle('full-screen');
+      document.querySelector('body').classList.toggle('full-screen');
     }
   });
 

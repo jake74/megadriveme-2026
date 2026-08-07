@@ -55,50 +55,51 @@ $notes = get_field('notes');
 	
 	<main id="primary" class="site-main">
 
-		<div class="single-game">
+		<nav id="nav-games" class="game-navigation">
+			<?php 
+				$prev_post = get_adjacent_post(false, '', true);
+				$next_post = get_adjacent_post(false, '', false);
+			?>
+			<ul class="game-nav">
+				<li class="back-to-covers"><a href="<?php echo get_post_type_archive_link( 'mega-drive' ); ?>"><span>Mega Drive library</span></a></li>
+				<?php if ($prev_post ) : ?>
+					<li class="prev"><a href="<?php echo get_permalink($prev_post->ID); ?>" title="<?php echo $prev_post->post_title; ?>"><span><?php echo $prev_post->post_title; ?></span></a></li>
+				<?php endif; ?>
+				<?php if ($next_post) : ?>
+					<li class="next"><a href="<?php echo get_permalink($next_post->ID); ?>" title="<?php echo $next_post->post_title; ?>"><span><?php echo $next_post->post_title; ?></span></a></li>
+				<?php endif; ?>
+			</ul>
+		</nav>
+
+		
+
+		<div class="single-game">				
+			<header class="game-header">
+
+				<div class="title-misc-info">
+					<?php if ($catalog_no) : ?>
+						<p><?php echo $catalog_no; ?></p>
+					<?php endif; ?>
+					<?php if ($aka) : ?>
+						<p><?php echo $aka; ?></p>
+					<?php endif; ?>
+				</div>
+
+				<?php the_title( '<h1 class="game-title">', '</h1>' ); ?>
+				<?php if ( $jpn_title ) : ?>
+					<h2 class="japanese-title" lang="ja"><?php echo $jpn_title; ?></h2>
+				<?php endif; ?>
+			</header>
+
 			<?php
 				$random = (rand(0,40)/10) - 1.5;
 				// echo $random;
 				echo '<style>';
 				echo ':root { --rotate: ' . $random . 'deg; }';
 				echo '</style>';
-
 			?>
 
 			<div class="game-data-sheet">
-				
-				<header class="game-header">
-					<nav id="nav-games" class="game-navigation">
-						<?php 
-							$prev_post = get_adjacent_post(false, '', true);
-							$next_post = get_adjacent_post(false, '', false);
-						?>
-						<ul>
-							<li class="back-to-covers"><a href="<?php echo get_post_type_archive_link( 'mega-drive' ); ?>"><?php echo file_get_contents( get_template_directory() . '/assets/images/cover-grid.svg' ); ?> <span>Mega Drive library</span></a></li>
-							<?php if ($prev_post ) : ?>
-								<li class="prev"><a href="<?php echo get_permalink($prev_post->ID); ?>" title="<?php echo $prev_post->post_title; ?>"><?php echo file_get_contents( get_template_directory() . '/assets/images/nav-arrow.svg' ); ?> <span><?php echo $prev_post->post_title; ?></span></a></li>
-							<?php endif; ?>
-							<?php if ($next_post) : ?>
-								<li class="next"><a href="<?php echo get_permalink($next_post->ID); ?>" title="<?php echo $next_post->post_title; ?>"><?php echo file_get_contents( get_template_directory() . '/assets/images/nav-arrow.svg' ); ?> <span><?php echo $next_post->post_title; ?></span></a></li>
-							<?php endif; ?>
-						</ul>
-					</nav>
-
-					<ul class="title-misc-info">
-						<?php if ($catalog_no) : ?>
-							<li><?php echo $catalog_no; ?></li>
-						<?php endif; ?>
-						<?php if ($aka) : ?>
-							<li><?php echo $aka; ?></li>
-						<?php endif; ?>
-					</ul>
-
-					<?php the_title( '<h1 class="game-title">', '</h1>' ); ?>
-					<?php if ( $jpn_title ) : ?>
-						<h2 class="japanese-title" lang="ja"><?php echo $jpn_title; ?></h2>
-					<?php endif; ?>
-
-				</header>
 
 				<div class="game-info">
 					<div class="game-meta">
@@ -224,18 +225,18 @@ $notes = get_field('notes');
 					</div>
 
 					<?php // If comments are open or we have at least one comment, load up the comment template.
-						if ( comments_open() || get_comments_number() ) : ?>
+						/* if ( comments_open() || get_comments_number() ) : ?>
 							<h3 class="sub-title">Discussion</h3>
 						<?php
 							comments_template();
 						endif;
-					?>
+					 */ ?>
 
 					<?php // get_template_part( 'template-parts/google-ads' ); ?>
 
 				</div>
-
-				<div class="game-media">
+			</div>
+			<div class="game-media">
 					<?php if ( have_rows('videos') ) : ?>
 						<div class="entry-video">
 							<h4 class="sub-title">Video</h4>
@@ -269,8 +270,6 @@ $notes = get_field('notes');
 					</div>
 			
 				</div>
-
-			</div>
 		</div>
 
 	</main>

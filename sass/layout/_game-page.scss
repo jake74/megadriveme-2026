@@ -16,6 +16,9 @@
 // }
 
 .single-game {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-column: 1 / span 12;
 
   @include mq.mq($from: mediumlarge) {
@@ -27,13 +30,139 @@
   }
 }
 
-.japanese-title {
-  letter-spacing: 0;
+.game-header {
+  // display: grid;
+  // gap: var(--gap);
+  // grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-column: 1 / span 12;
+
+  .game-title,
+  .japanese-title {
+    line-height: 1;
+    font-size: 3rem;
+    margin-bottom: var(--gap-half);
+  }
+  
 }
 
+// .japanese-title {
+//   letter-spacing: 0;
+// }
+
 .game-navigation {
-  ul {
+  .game-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: grid;
+    gap: var(--gap);
     grid-template-columns: repeat(12, minmax(0, 1fr));
+
+    @include mq.mq($from: mediumlarge) {
+      grid-template-columns: repeat(24, minmax(0, 1fr));
+    }
+  }
+
+  a {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 22/40;
+    background-color: $color_md-grey;
+    text-indent: -9999px;
+    transition: background-color 0.2s ease-in-out;
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: 100% auto;
+
+    &:hover {
+      background-color: $color_md-green;
+    }
+  }
+
+  .back-to-covers {
+    grid-column: 11 / span 1;
+    grid-row: 1 / span 1;
+
+    @include mq.mq($from: mediumlarge) {
+      grid-column: 23 / span 1;
+    }
+
+    a {
+      mask-image: url(assets/images/cover-grid.svg);
+    }
+  }
+
+  .prev {
+    grid-column: 10 / span 1;
+    grid-row: 1 / span 1;
+    display: flex;
+
+    @include mq.mq($from: mediumlarge) {
+      grid-column: 22 / span 1;
+    }
+
+    a {
+      margin-left: auto;
+      transform: scaleX(-1);
+    }
+  }
+
+  .next {
+    grid-column: 12 / span 1;
+    grid-row: 1 / span 1;
+
+    @include mq.mq($from: mediumlarge) {
+      grid-column: 24 / span 1;
+    }
+  }
+
+  .prev,
+  .next {
+    a {
+      mask-image: url(assets/images/nav-arrow.svg);
+    }
+  }
+
+  span {
+    display: none;
+  }
+}
+
+
+.game-data-sheet {
+  container-type: inline-size;
+  grid-column: 1 / span 12;
+
+  @include mq.mq($from: mediumlarge) {
+    grid-column: 1 / span 8;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 200;
+    letter-spacing: 0.025em;
+    font-size: 32px;
+
+    @include mq.mq($from: mediumlarge) {
+      font-size: 6cqw;
+    }
+  }
+}
+
+.game-media {
+  grid-column: 1 / span 12;
+
+  @include mq.mq($from: mediumlarge) {
+    grid-column: 10/ span 3;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 200;
+    letter-spacing: 0.025em;
+    font-size: 32px;
+
+    @include mq.mq($from: mediumlarge) {
+      font-size: 2cqw;
+    }
   }
 }
