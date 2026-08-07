@@ -35,6 +35,14 @@ $usa_title = get_field('usa');
 $overview = get_field('overview');
 $comment = get_field('comment');
 $notes = get_field('notes');
+
+
+// cover rotation
+	$random = (rand(0,40)/10) - 1.5;
+	// echo $random;
+	echo '<style>';
+	echo ':root { --rotate: ' . $random . 'deg; }';
+	echo '</style>';
 ?>
 
 	<div class="game-detail-cover aside">
@@ -71,17 +79,15 @@ $notes = get_field('notes');
 			</ul>
 		</nav>
 
-		
-
 		<div class="single-game">				
 			<header class="game-header">
 
 				<div class="title-misc-info">
 					<?php if ($catalog_no) : ?>
-						<p><?php echo $catalog_no; ?></p>
+						<p class="catalog-no"><?php echo $catalog_no; ?></p>
 					<?php endif; ?>
 					<?php if ($aka) : ?>
-						<p><?php echo $aka; ?></p>
+						<p class="aka"><?php echo $aka; ?></p>
 					<?php endif; ?>
 				</div>
 
@@ -90,14 +96,6 @@ $notes = get_field('notes');
 					<h2 class="japanese-title" lang="ja"><?php echo $jpn_title; ?></h2>
 				<?php endif; ?>
 			</header>
-
-			<?php
-				$random = (rand(0,40)/10) - 1.5;
-				// echo $random;
-				echo '<style>';
-				echo ':root { --rotate: ' . $random . 'deg; }';
-				echo '</style>';
-			?>
 
 			<div class="game-data-sheet">
 
@@ -236,40 +234,41 @@ $notes = get_field('notes');
 
 				</div>
 			</div>
-			<div class="game-media">
-					<?php if ( have_rows('videos') ) : ?>
-						<div class="entry-video">
-							<h4 class="sub-title">Video</h4>
-							<?php
-								while ( have_rows('videos') ) : the_row();
-                  $video = get_sub_field('video');
 
-                  echo $video;
-                endwhile;
-							?>
-						</div>
-					<?php endif; ?>
-          
-					<div class="entry-screenshots">
-						<h4 class="sub-title">Screenshots</h4>
-            <?php if (have_rows('screenshots')) : ?>
-							<div class="game-gallery">
-                <div class="swiper-wrapper">
-                  <?php while(have_rows('screenshots')) : the_row();
-                    $screenshot = get_sub_field('screenshot');
-                  ?>
-                    <div class="swiper-slide">
-                      <img src="<?php echo $screenshot['url']; ?>" alt="<?php echo $screenshot['title']; ?>" loading="lazy">
-                    </div>
-                  <?php endwhile; ?>
-                </div>
-							</div>
-						<?php else : ?>
-							<p>There are no screenshots yet.</p>
-						<?php endif; ?>
+			<div class="game-media">
+				<?php if ( have_rows('videos') ) : ?>
+					<div class="entry-video">
+						<h4 class="sub-title">Video</h4>
+						<?php
+							while ( have_rows('videos') ) : the_row();
+								$video = get_sub_field('video');
+
+								echo $video;
+							endwhile;
+						?>
 					</div>
-			
+				<?php endif; ?>
+				
+				<div class="entry-screenshots">
+					<h4 class="sub-title">Screenshots</h4>
+					<?php if (have_rows('screenshots')) : ?>
+						<div class="game-gallery">
+							<div class="swiper-wrapper">
+								<?php while(have_rows('screenshots')) : the_row();
+									$screenshot = get_sub_field('screenshot');
+								?>
+									<div class="swiper-slide">
+										<img src="<?php echo $screenshot['url']; ?>" alt="<?php echo $screenshot['title']; ?>" loading="lazy">
+									</div>
+								<?php endwhile; ?>
+							</div>
+						</div>
+					<?php else : ?>
+						<p>There are no screenshots yet.</p>
+					<?php endif; ?>
 				</div>
+		
+			</div>
 		</div>
 
 	</main>

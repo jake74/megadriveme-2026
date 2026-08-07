@@ -45,6 +45,27 @@
   
 }
 
+.title-misc-info {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  color: $color_md-grey;
+  font-weight: 600;
+  margin-bottom: var(--gap);
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .catalog-no {
+    grid-column: 1 / span 3;
+  }
+  .aka {
+    grid-column: 5 / span 6;
+  }
+
+}
+
 // .japanese-title {
 //   letter-spacing: 0;
 // }
