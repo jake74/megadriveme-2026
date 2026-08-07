@@ -1,6 +1,5 @@
 <?php
 $post_type = get_post_type();
-echo $post_type;
 
 if ($post_type === 'mega-drive') {
   $showcase_photos = 'mega_drive_showcase';
