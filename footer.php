@@ -9,6 +9,9 @@
  * @package dekiru
  */
 
+$notice = get_field('notice', 'options');
+$credits = get_field('credits', 'options');
+
 ?>
   
 	<footer class="site-footer" role="contentinfo">
@@ -18,11 +21,13 @@
 			</a>
 
 			<div class="copy">
-				<p>©2011—<?php echo esc_html( date_i18n( 'Y' ) ); ?> MegaDrive.me. All trademarks are copyright of their respective owners. The MegaDrive.Me site is not affiliated with Sega.</p>
+				<p>©2011—<?php echo esc_html( date_i18n( 'Y' ) ); ?> MegaDrive.me.</p>
+				<?php if ($notice) : echo $notice; endif; ?>
 			</div>
 
 			<div class="credits">
-				<p>Site designed and built by <a href="https://bsky.app/profile/jake74.bsky.social">@jake74</a> at <a href="https://dekiru.gg" title="DEKIRU. Website design and build for indie games studios."><span class="dekiru">DEKIRU</span></a>. Contributors &amp; credits.</p>
+				<?php /*<p>Site designed and built by <a href="https://bsky.app/profile/jake74.bsky.social" rel="nofollow">@jake74</a> at <a href="https://dekiru.gg" title="DEKIRU. Website design and build for indie games studios."><span class="dekiru">DEKIRU</span></a>. Scans by Jake. Photography by <a href="https://bsky.app/profile/damienmcferran.bsky.social" rel="nofollow">Damien McFerran</a>.</p> */ ?>
+				<?php if ($credits) : echo $credits; endif; ?>
 			</div>
 		</div>
 	</footer>
