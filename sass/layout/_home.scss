@@ -40,6 +40,18 @@
     @include mq.mq($from: $medium) {
       gap: var(--gap);
     }
+
+    i {
+      font-style: normal;
+      margin-left: 0.25em;
+    }
+
+    // @include mq.mq($from: $large) {
+
+    //   i {
+    //     display: none;
+    //   }
+    // }
   }
   
   .section-title {
@@ -55,9 +67,6 @@
     @include mq.mq($from: $medium) {
       font-size: 3cqw;
       grid-column: 1 / span 8;
-    }
-    @include mq.mq($from: $mediumlarge) {
-
     }
   }
 

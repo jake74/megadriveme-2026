@@ -40,6 +40,7 @@ if ( $birthday_posts->have_posts() ) {
 
 		$month = (int) wp_date( 'n', $original_timestamp );
 		$day = (int) wp_date( 'j', $original_timestamp );
+		$birthday_year = (int) wp_date( 'Y', $original_timestamp );
 		$mmdd = (int) wp_date( 'md', $original_timestamp );
 
 		$occurrence_year = ( $mmdd >= $today_mmdd ) ? $current_year : $current_year + 1;
@@ -98,6 +99,13 @@ foreach ( $upcoming_birthdays as $birthday ) {
 				<h2 class="birthdays-today-title">Today's Birthdays <span class="birthdays-today-date"><?php echo esc_html( wp_date( 'j F', $today_timestamp ) ); ?></span></h2>
 				<?php foreach ( $todays_birthdays as $birthday ) : ?>
 					<article class="birthday-item birthday-item-today <?php echo esc_attr( $birthday['post_type'] ); ?>">
+						<?php if (get_post_thumbnail_id( $birthday['post_id'] )) : ?>
+							<div class="birthday-thumbnail">
+								<a href="<?php echo esc_url( $birthday['permalink'] ); ?>">
+									<?php echo get_the_post_thumbnail( $birthday['post_id'], 'md_cover_archive' ); ?>
+								</a>
+							</div>
+						<?php endif; ?>
 						<div class="birthday-title">
 							<a href="<?php echo esc_url( $birthday['permalink'] ); ?>"><?php echo esc_html( $birthday['title'] ); ?></a>
 							<span class="birthday-post-type"><?php echo esc_html( $birthday['post_type_label'] ); ?></span>
@@ -127,12 +135,18 @@ foreach ( $upcoming_birthdays as $birthday ) {
 					<article class="birthday-item <?php echo esc_attr( $birthday['post_type'] ); ?>">
 						<?php if ( $show_date ) : ?>
 							<div class="birthday-date">
-								<span class="birthday-day"><?php echo esc_html( wp_date( 'l', $birthday['occurrence_timestamp'] ) ); ?></span>
 								<span class="birthday-day-month"><?php echo esc_html( wp_date( 'j F', $birthday['occurrence_timestamp'] ) ); ?></span>
 							</div>
 						<?php endif; ?>
+						<?php if (get_post_thumbnail_id( $birthday['post_id'] )) : ?>
+							<div class="birthday-thumbnail">
+								<a href="<?php echo esc_url( $birthday['permalink'] ); ?>">
+									<?php echo get_the_post_thumbnail( $birthday['post_id'], 'md_cover' ); ?>
+								</a>
+							</div>
+						<?php endif; ?>
 						<div class="birthday-title">
-							<a href="<?php echo esc_url( $birthday['permalink'] ); ?>"><?php echo esc_html( $birthday['title'] ); ?></a>
+							<a href="<?php echo esc_url( $birthday['permalink'] ); ?>"><?php echo esc_html( $birthday['title'] ); ?> (<?php echo esc_html( $birthday_year ); ?>)</a>
 							<span class="birthday-post-type"><?php echo esc_html( $birthday['post_type_label'] ); ?></span>
 						</div>
 					</article>

@@ -1,0 +1,63 @@
+@use "../mixins/mixins-master" as mixins;
+@use "../variables-site/variables-site" as *;
+@use "../mixins/mq" as mq;
+@use 'sass:color';
+
+.birthdays-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.birthday-item {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--gap-half);
+
+  .birthday-date {
+    grid-column: 1 / span 12;
+    font-weight: 200;
+    font-size: 3cqw;
+    border-top: 1px solid $color_md-light-grey;
+  }
+
+  .birthday-thumbnail {
+    grid-column: 1 / span 2;
+    display: flex;
+    align-items: center;
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  .birthday-title {
+    grid-column: 3 / span 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    a {
+      font-weight: 600;
+      font-size: 3cqw;
+      line-height: 1.2;
+      margin-bottom: var(--gap-half);
+      text-decoration: none;
+      color: $color_black;
+    }
+
+    .birthday-post-type {
+      font-weight: 300;
+      font-size: 2cqw;
+    }
+  }
+}

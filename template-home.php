@@ -43,7 +43,11 @@ $today_day = (int) wp_date( 'j', $today_timestamp );
 		}
 
 		if ( $today_posts->have_posts() ) : ?>
-			<h1 class="section-title">Today in Mega Drive History</h1>
+
+			<div class="section-header">
+				<h1 class="section-title">Today in Mega Drive History</h1>
+				<a href="/birthdays" class="view-all">All <i>🎂</i><span> Birthdays</span></a>
+			</div>
 			<div class="display-grid mega-drive today <?php echo $today_count; ?>">
 				<?php while ( $today_posts->have_posts() ) : $today_posts->the_post(); 
 					$game_birthday = true;	
@@ -85,7 +89,7 @@ $today_day = (int) wp_date( 'j', $today_timestamp );
 				<a href="<?php echo get_post_type_archive_link( 'mega-cd' ); ?>" class="view-all"><span>All&nbsp;</span>Mega CD</a>
 			</div>
 			<div class="display-grid format-mega-drive js-random-games" data-post-type="mega-cd" data-posts-per-page="<?php echo esc_attr( $posts_per_page ); ?>" data-empty-message="No Mega CD games found.">
-				<p>Loading games...</p>
+				<p class="loading-message">Loading...</p>
 			</div>
 		</div>
 
@@ -95,7 +99,7 @@ $today_day = (int) wp_date( 'j', $today_timestamp );
 				<a href="<?php echo get_post_type_archive_link( '32x' ); ?>" class="view-all"><span>All&nbsp;</span>Super 32X</a>
 			</div>
 			<div class="display-grid format-mega-drive js-random-games" data-post-type="32x" data-posts-per-page="<?php echo esc_attr( $posts_per_page ); ?>" data-empty-message="No 32X games found.">
-				<p>Loading games...</p>
+				<p class="loading-message">Loading...</p>
 			</div>
 		</div>
 	</div>
