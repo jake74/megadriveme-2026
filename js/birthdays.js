@@ -204,8 +204,8 @@ function renderMonthGroup(group) {
       + futureThumbnailHtml
       + '</div>'
       + '<div class="birthday-title">'
-      + '<a href="' + escapeHtml(item.permalink) + '">' + escapeHtml(item.title) + ' (' + escapeHtml(item.birthday_year) + ')</a>'
-      + '<span class="birthday-post-type">' + escapeHtml(item.post_type_label) + '</span>'
+      + '<a href="' + escapeHtml(item.permalink) + '">' + escapeHtml(item.title) + '</a>'
+      + '<span class="birthday-post-type">' + escapeHtml(item.post_type_label) + ' / ' + escapeHtml(item.birthday_year) + '</span>'
       + '</div>'
       + '</article>';
   });
