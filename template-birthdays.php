@@ -138,13 +138,13 @@ foreach ( $upcoming_birthdays as $birthday ) {
 								<span class="birthday-day-month"><?php echo esc_html( wp_date( 'j F', $birthday['occurrence_timestamp'] ) ); ?></span>
 							</div>
 						<?php endif; ?>
-						<?php if (get_post_thumbnail_id( $birthday['post_id'] )) : ?>
-							<div class="birthday-thumbnail">
+						<div class="birthday-thumbnail game-cover" data-post-type="<?php echo esc_attr( $birthday['post_type'] ); ?>">
+							<?php if (get_post_thumbnail_id( $birthday['post_id'] )) : ?>
 								<a href="<?php echo esc_url( $birthday['permalink'] ); ?>">
 									<?php echo get_the_post_thumbnail( $birthday['post_id'], 'md_cover' ); ?>
 								</a>
-							</div>
-						<?php endif; ?>
+							<?php endif; ?>
+						</div>
 						<div class="birthday-title">
 							<a href="<?php echo esc_url( $birthday['permalink'] ); ?>"><?php echo esc_html( $birthday['title'] ); ?> (<?php echo esc_html( $birthday_year ); ?>)</a>
 							<span class="birthday-post-type"><?php echo esc_html( $birthday['post_type_label'] ); ?></span>

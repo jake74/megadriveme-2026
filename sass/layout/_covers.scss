@@ -16,85 +16,7 @@
 		gap: var(--gap);
 	}
 
-	.game-cover {
-		display: block;
-		position: relative;
-		// z-index: -1;
-		// height: 0;
-		background: color.adjust($color-md_grey, $lightness: 40%) url('assets/images/megadriveme-white-keyline.svg') center center no-repeat;
-		background-size: 56px 40px;
-		overflow: hidden;
-		color: white;
-		aspect-ratio: 232/322;
-		grid-column: span 4;
-		text-decoration: none;
-		font-size: 1cqw;
-
-		&:after {
-			content: attr(data-post-type);
-			display: flex;
-			justify-content: center;
-			align-items: flex-end;
-			width: 100%;
-			height: 100%;
-			line-height: 2;
-			text-transform: uppercase;
-    	font-family: $font__heading;
-    	@include mixins.font-smoothing();
-		}
-
-		@include mq.mq($from: $small) {
-			grid-column: span 4;
-			font-size: 2cqw;
-		}
-
-		@include mq.mq($from: $medium) {
-			grid-column: span 4;
-			font-size: 1.4cqw;
-		}
-
-		@include mq.mq($from: $mediumlarge) {
-			grid-column: span 3;
-			font-size: 1cqw;
-
-			&:nth-of-type(n+5) {
-				body.home & {
-					display: none;
-				}
-			}
-		}
-
-		@include mq.mq($from: $large) {
-			grid-column: span 2;
-
-			&:nth-of-type(n+5) {
-				body.home & {
-					display: unset;
-				}
-			}
-		}
-
-		&.mega-cd,
-		&.cover-mega-cd {
-			aspect-ratio: 232/232;
-		}
-
-		img {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			pointer-events: none;
-		}
-
-		&:hover {
-			.entry-header {
-				transform: translateY(0);
-			}
-		}
-	}
+	
 
 	&.today {
 		.game-cover {
@@ -144,6 +66,86 @@
 		padding: 0.5rem 0.25rem;
 		text-align: center;
 		font-weight: 600;
+	}
+}
+
+.game-cover {
+	display: block;
+	position: relative;
+	// z-index: -1;
+	// height: 0;
+	background: color.adjust($color-md_grey, $lightness: 40%) url('assets/images/megadriveme-white-keyline.svg') center center no-repeat;
+	background-size: 56px 40px;
+	overflow: hidden;
+	color: white;
+	aspect-ratio: 232/322;
+	grid-column: span 4;
+	text-decoration: none;
+	font-size: 1cqw;
+
+	&:after {
+		content: attr(data-post-type);
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		width: 100%;
+		height: 100%;
+		line-height: 2;
+		text-transform: uppercase;
+		font-family: $font__heading;
+		@include mixins.font-smoothing();
+	}
+
+	@include mq.mq($from: $small) {
+		grid-column: span 4;
+		font-size: 2cqw;
+	}
+
+	@include mq.mq($from: $medium) {
+		grid-column: span 4;
+		font-size: 1.4cqw;
+	}
+
+	@include mq.mq($from: $mediumlarge) {
+		grid-column: span 3;
+		font-size: 1cqw;
+
+		&:nth-of-type(n+5) {
+			body.home & {
+				display: none;
+			}
+		}
+	}
+
+	@include mq.mq($from: $large) {
+		grid-column: span 2;
+
+		&:nth-of-type(n+5) {
+			body.home & {
+				display: unset;
+			}
+		}
+	}
+
+	&.mega-cd,
+	&.cover-mega-cd {
+		aspect-ratio: 232/232;
+	}
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		pointer-events: none;
+	}
+
+	&:hover {
+		.entry-header {
+			transform: translateY(0);
+		}
 	}
 }
 
