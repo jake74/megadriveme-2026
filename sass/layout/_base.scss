@@ -3,6 +3,10 @@
 @use "../mixins/mq" as mq;
 @use 'sass:color';
 
+// * {
+//   outline: 1px solid red;
+// }
+
 .dekiru {
 	letter-spacing: 0.125em;
 	font-weight: 700;
@@ -38,6 +42,7 @@ html {
 }
 
 body {
+	overflow-x: hidden;
 	
 	&.menu-active {
 		overflow: hidden;
