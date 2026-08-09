@@ -3,10 +3,6 @@
 @use "../mixins/mq" as mq;
 @use 'sass:color';
 
-.birthdays-content {
-  padding-bottom: var(--gap-double);
-}
-
 .birthdays-list {
   display: grid;
   gap: var(--gap);
@@ -62,14 +58,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+
   a {
     font-weight: 600;
     font-size: 3cqw;
-    line-height: 1.1;
+    line-height: 1.2;
+    margin-bottom: var(--gap-half);
     text-decoration: none;
     color: $color_black;
-    @include mixins.font-smoothing();
 
     @include mq.mq($from: $mediumlarge) {
       font-size: 2cqw;
@@ -90,10 +86,6 @@
   grid-column: 1 / span 12;
   font-size: 3cqw;
   border-top: 1px solid $color_md-light-grey;
-  margin-top: var(--gap);
-  margin-bottom: 0;
-  padding-top: var(--gap);
-  @include mixins.font-smoothing();
 
   @include mq.mq($from: $mediumlarge) {
     font-size: 3cqw;
@@ -106,9 +98,7 @@
   grid-column: 1 / span 12;
   border-top: 1px solid $color_md-light-grey;
   font-size: 2cqw;
-  font-weight: 700;
-  padding-top: var(--gap-half);
-  @include mixins.font-smoothing();
+  font-weight: 500;
 
   @include mq.mq($from: $mediumlarge) {
     font-size: 1.5cqw;
