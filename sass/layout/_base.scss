@@ -129,3 +129,9 @@ video {
 	display: none;
 }
 
+.loading-message {
+	color: $color_md-light-grey;
+	text-transform: uppercase;
+	font-family: $font__heading;
+	@include mixins.font-smoothing();
+}

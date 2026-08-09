@@ -133,6 +133,18 @@ function dekiru_scripts() {
 	*/
 
 	wp_enqueue_script( 'dekiru-scripts', get_template_directory_uri() . '/js/min/scripts.min.js', array(), null, true );
+
+	if ( is_page_template( 'template-home.php' ) ) {
+		wp_enqueue_script( 'dekiru-home-random', get_template_directory_uri() . '/js/home-random.js', array(), null, true );
+		wp_localize_script(
+			'dekiru-home-random',
+			'dekiruHomeRandom',
+			array(
+				'endpoint' => esc_url_raw( rest_url( 'mdme/v1/random-games' ) ),
+			)
+		);
+	}
+
 	wp_enqueue_style( 'dekiru-style', get_stylesheet_uri() );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -140,6 +152,202 @@ function dekiru_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'dekiru_scripts' );
+
+/**
+ * Registers public REST endpoint for random home page game cards.
+ */
+function dekiru_register_random_games_route() {
+	register_rest_route(
+		'mdme/v1',
+		'/random-games',
+		array(
+			'methods'             => 'GET',
+			'callback'            => 'dekiru_get_random_games',
+			'permission_callback' => '__return_true',
+		)
+	);
+}
+add_action( 'rest_api_init', 'dekiru_register_random_games_route' );
+
+/**
+ * Build a REST response for random games with cache headers.
+ *
+ * @param array $data     Response data.
+ * @param int   $status   HTTP status code.
+ * @param bool  $cacheable Whether response should be cacheable.
+ *
+ * @return WP_REST_Response
+ */
+function dekiru_random_games_response( array $data, $status = 200, $cacheable = true ) {
+	$response = new WP_REST_Response( $data, $status );
+
+	if ( $cacheable ) {
+		$response->header( 'Cache-Control', 'public, max-age=900, s-maxage=900, stale-while-revalidate=60' );
+	} else {
+		$response->header( 'Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0' );
+	}
+
+	return $response;
+}
+
+/**
+ * Purges all random game transients used by the home REST endpoint.
+ */
+function dekiru_purge_random_games_cache() {
+	$post_types = array( 'mega-drive', 'mega-cd', '32x' );
+
+	foreach ( $post_types as $post_type ) {
+		for ( $posts_per_page = 1; $posts_per_page <= 24; $posts_per_page++ ) {
+			delete_transient( 'dekiru_random_' . $post_type . '_' . $posts_per_page );
+		}
+	}
+}
+
+/**
+ * Adds cache management widget to WP Dashboard.
+ */
+function dekiru_register_cache_dashboard_widget() {
+	if ( current_user_can( 'manage_options' ) ) {
+		wp_add_dashboard_widget(
+			'dekiru_cache_bust_widget',
+			'Home Random Cache',
+			'dekiru_render_cache_dashboard_widget'
+		);
+	}
+}
+add_action( 'wp_dashboard_setup', 'dekiru_register_cache_dashboard_widget' );
+
+/**
+ * Renders the cache bust action button on the dashboard.
+ */
+function dekiru_render_cache_dashboard_widget() {
+	if ( isset( $_GET['dekiru_cache_purged'] ) && '1' === $_GET['dekiru_cache_purged'] ) {
+		echo '<p><strong>Random home cache cleared.</strong></p>';
+	}
+	?>
+	<p>Clear cached random game blocks used on the home page endpoint.</p>
+	<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+		<input type="hidden" name="action" value="dekiru_purge_random_games_cache" />
+		<?php wp_nonce_field( 'dekiru_purge_random_games_cache_action', 'dekiru_purge_random_games_cache_nonce' ); ?>
+		<?php submit_button( 'Bust Random Cache', 'secondary', 'submit', false ); ?>
+	</form>
+	<?php
+}
+
+/**
+ * Handles dashboard cache bust action.
+ */
+function dekiru_handle_purge_random_games_cache() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( 'You are not allowed to do this.' );
+	}
+
+	check_admin_referer( 'dekiru_purge_random_games_cache_action', 'dekiru_purge_random_games_cache_nonce' );
+
+	dekiru_purge_random_games_cache();
+
+	wp_safe_redirect( add_query_arg( 'dekiru_cache_purged', '1', admin_url( 'index.php' ) ) );
+	exit;
+}
+add_action( 'admin_post_dekiru_purge_random_games_cache', 'dekiru_handle_purge_random_games_cache' );
+
+/**
+ * Returns HTML cards for a random set of games by post type.
+ *
+ * @param WP_REST_Request $request REST request.
+ *
+ * @return WP_REST_Response
+ */
+function dekiru_get_random_games( WP_REST_Request $request ) {
+	$allowed_post_types = array( 'mega-drive', 'mega-cd', '32x' );
+	$post_type = sanitize_key( (string) $request->get_param( 'post_type' ) );
+	$posts_per_page = absint( $request->get_param( 'posts_per_page' ) );
+
+	if ( ! in_array( $post_type, $allowed_post_types, true ) ) {
+		return dekiru_random_games_response(
+			array(
+				'html'    => '',
+				'message' => 'Invalid post type.',
+			),
+			400,
+			false
+		);
+	}
+
+	if ( $posts_per_page < 1 || $posts_per_page > 24 ) {
+		$posts_per_page = 6;
+	}
+
+	$cache_key = 'dekiru_random_' . $post_type . '_' . $posts_per_page;
+	$cached = get_transient( $cache_key );
+
+	if ( false !== $cached ) {
+		return dekiru_random_games_response(
+			array(
+				'html'    => $cached,
+				'message' => '',
+			)
+		);
+	}
+
+	$query = new WP_Query(
+		array(
+			'post_type'      => $post_type,
+			'post_status'    => 'publish',
+			'orderby'        => 'rand',
+			'posts_per_page' => $posts_per_page,
+			'no_found_rows'  => true,
+			'meta_query'     => array(
+				array(
+					'key' => '_thumbnail_id',
+				),
+			),
+		)
+	);
+
+	ob_start();
+
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();
+
+			$type = get_post_type();
+			$type_object = get_post_type_object( $type );
+			$type_label = $type_object && isset( $type_object->labels->menu_name ) ? $type_object->labels->menu_name : $type;
+			$cover_class = 'cover-md';
+			$thumb_size = 'showcase';
+
+			if ( 'mega-cd' === $type ) {
+				$cover_class = 'cover-mega-cd';
+				$thumb_size = 'showcase_cd';
+			} elseif ( '32x' === $type ) {
+				$cover_class = 'cover-32x';
+			}
+			?>
+			<a href="<?php the_permalink(); ?>" class="<?php echo esc_attr( $cover_class ); ?> game-cover" data-post-type="<?php echo esc_attr( $type_label ); ?>">
+				<?php the_post_thumbnail( $thumb_size, array( 'alt' => the_title_attribute( array( 'echo' => false ) ) ) ); ?>
+				<div class="entry-header">
+					<?php the_title( '<p class="entry-title">', '</p>' ); ?>
+				</div>
+			</a>
+			<?php
+		}
+	} else {
+		echo '<p>No games found.</p>';
+	}
+
+	wp_reset_postdata();
+
+	$html = trim( ob_get_clean() );
+	set_transient( $cache_key, $html, 15 * MINUTE_IN_SECONDS );
+
+	return dekiru_random_games_response(
+		array(
+			'html'    => $html,
+			'message' => '',
+		)
+	);
+}
 
 /**
  * Implement the Custom Header feature.
