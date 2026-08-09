@@ -1,4 +1,7 @@
 <?php
+$section = '';
+$section = isset($args['section']) ? $args['section'] : '';
+
 $post_type = get_post_type();
 // echo $post_type;
 
@@ -7,6 +10,9 @@ $post_type_labels = get_post_type_object(get_post_type())->labels->menu_name;
 
 <?php if ($post_type === 'mega-drive') : ?>
   <a href="<?php the_permalink(); ?>" class="cover-md game-cover" data-post-type="<?php echo $post_type_labels; ?>">
+    <?php if ( $section === 'today' ) : ?>
+      <span class="game-birthday" aria-label="Game birthday">🎂 <?php the_time('Y'); ?></span>
+    <?php endif; ?>
     <?php the_post_thumbnail( 'showcase', array( 'alt' => the_title_attribute( array( 'echo' => false, ) ), ) ); ?>
     <div class="entry-header">
       <?php

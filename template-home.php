@@ -51,7 +51,10 @@ $user_day = date( 'j' );
 					$game_birthday = true;	
 				?>
 					<?php 
-						get_template_part( 'template-parts/card', 'game-cover' );
+					$args = array(
+						'section' => 'today',
+					);
+					get_template_part( 'template-parts/card', 'game-cover', $args );
 					?>
 				<?php endwhile; ?>
 			</div>

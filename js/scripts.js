@@ -88,6 +88,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // toggle full-screen on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.querySelector('.game-detail-cover').classList.contains('full-screen')) {
+      document.querySelector('.game-detail-cover').classList.toggle('full-screen');
+      document.querySelector('body').classList.toggle('full-screen');
+    }
+  });
+
 });
 
 

@@ -38,11 +38,11 @@ get_header(); ?>
 
 			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 			$args = array(
-					'post_type' => 'mega-drive',
-					'orderby'   => 'date',
-					'order'     => 'ASC', // Change to DESC to reverse
-					'paged'     => $paged,
-					// 'posts_per_page' => 12,
+				'post_type' => 'mega-drive',
+				'orderby'   => 'date',
+				'order'     => 'ASC', // Change to DESC to reverse
+				'paged'     => $paged,
+				// 'posts_per_page' => 12,
 			);
 
 			$total_posts = wp_count_posts( 'mega-drive' )->publish;

@@ -64,24 +64,14 @@ $notes = get_field('notes');
 	
 	<main id="primary" class="site-main">
 
-		<nav id="nav-games" class="game-navigation">
-			<?php 
-				$prev_post = get_adjacent_post(false, '', true);
-				$next_post = get_adjacent_post(false, '', false);
-			?>
-			<ul class="game-nav">
-				<li class="back-to-covers"><a href="<?php echo get_post_type_archive_link( 'mega-drive' ); ?>"><span>Mega Drive library</span></a></li>
-				<?php if ($prev_post ) : ?>
-					<li class="prev"><a href="<?php echo get_permalink($prev_post->ID); ?>" title="<?php echo $prev_post->post_title; ?>"><span><?php echo $prev_post->post_title; ?></span></a></li>
-				<?php endif; ?>
-				<?php if ($next_post) : ?>
-					<li class="next"><a href="<?php echo get_permalink($next_post->ID); ?>" title="<?php echo $next_post->post_title; ?>"><span><?php echo $next_post->post_title; ?></span></a></li>
-				<?php endif; ?>
-			</ul>
-		</nav>
-
 		<div class="single-game">				
 			<header class="game-header">
+
+				<?php the_title( '<h1 class="game-title">', '</h1>' ); ?>
+				<?php if ( $jpn_title ) : ?>
+					<h2 class="japanese-title" lang="ja"><?php echo $jpn_title; ?></h2>
+				<?php endif; ?>
+
 
 				<div class="title-misc-info">
 					<?php if ($catalog_no) : ?>
@@ -92,10 +82,22 @@ $notes = get_field('notes');
 					<?php endif; ?>
 				</div>
 
-				<?php the_title( '<h1 class="game-title">', '</h1>' ); ?>
-				<?php if ( $jpn_title ) : ?>
-					<h2 class="japanese-title" lang="ja"><?php echo $jpn_title; ?></h2>
-				<?php endif; ?>
+				<nav id="nav-games" class="game-navigation">
+					<?php 
+						$prev_post = get_adjacent_post(false, '', true);
+						$next_post = get_adjacent_post(false, '', false);
+					?>
+					<ul class="game-nav">
+						<li class="back-to-covers"><a href="<?php echo get_post_type_archive_link( 'mega-drive' ); ?>"><span>Mega Drive library</span></a></li>
+						<?php if ($prev_post ) : ?>
+							<li class="prev"><a href="<?php echo get_permalink($prev_post->ID); ?>" title="<?php echo $prev_post->post_title; ?>"><span><?php echo $prev_post->post_title; ?></span></a></li>
+						<?php endif; ?>
+						<?php if ($next_post) : ?>
+							<li class="next"><a href="<?php echo get_permalink($next_post->ID); ?>" title="<?php echo $next_post->post_title; ?>"><span><?php echo $next_post->post_title; ?></span></a></li>
+						<?php endif; ?>
+					</ul>
+				</nav>
+
 			</header>
 
 			<div class="game-data-sheet">
