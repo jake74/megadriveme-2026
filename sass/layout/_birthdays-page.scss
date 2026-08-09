@@ -5,6 +5,8 @@
 
 .birthdays-content {
   padding-bottom: var(--gap-double);
+  container-type: inline-size;
+
 }
 
 .birthdays-list {
@@ -65,20 +67,28 @@
   
   a {
     font-weight: 600;
-    font-size: 3cqw;
+    font-size: 5cqw;
     line-height: 1.1;
     text-decoration: none;
     color: $color_black;
     @include mixins.font-smoothing();
 
+    @include mq.mq($from: $medium) {
+      font-size: 4cqw;
+    }
+
     @include mq.mq($from: $mediumlarge) {
-      font-size: 2cqw;
+      font-size: 3cqw;
+    }
+
+    @include mq.mq($from: $xlarge) {
+      font-size: 3cqw;
     }
   }
 
   .birthday-post-type {
     font-weight: 300;
-    font-size: 2cqw;
+    font-size: 3.5cqw;
 
     @include mq.mq($from: $mediumlarge) {
       font-size: 1.5cqw;
