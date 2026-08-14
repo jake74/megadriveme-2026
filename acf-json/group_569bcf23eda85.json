@@ -676,7 +676,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
+                "value": "mega-cd"
             }
         ]
     ],
@@ -696,5 +696,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1784805828
+    "modified": 1786542402
 }

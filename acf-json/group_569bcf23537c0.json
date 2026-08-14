@@ -602,7 +602,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
+                "value": "32x"
             }
         ]
     ],
@@ -624,5 +624,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1784805841
+    "modified": 1786542414
 }
