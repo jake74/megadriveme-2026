@@ -14,8 +14,12 @@
     margin-bottom: var(--gap-double);
     display: grid;
     // column-gap: var(--gap);
-    gap: var(--gap);
+    gap: var(--gap-half);
     grid-template-columns: repeat(12, minmax(0, 1fr));
+ 
+    @include mq.mq($from: $medium) {
+      gap: var(--gap);
+    }
   }
 
   .logo {
@@ -31,15 +35,19 @@
     grid-row: 1 / span 2;
 
     @include mq.mq($from: small) {
-      grid-column: 1 / span 3;
+      grid-column: 1 / span 4;
     }
 
     @include mq.mq($from: medium) {
-      grid-column: 1 / span 2;
+      grid-column: 1 / span 4;
     }
 
     @include mq.mq($from: mediumlarge) {
-      // grid-column: 1 / span 1;
+      grid-column: 1 / span 3;
+    }
+
+    @include mq.mq($from: large) {
+      grid-column: 1 / span 2;
     }
   }
 
@@ -80,11 +88,15 @@
       text-decoration: none;
       color: $color_black;
       font-size: 32px;
-      font-size: 4cqw;
+      font-size: 3.5cqw;
       line-height: 0.8;
       padding-top: var(--gap-half);
       border-top: 5px solid transparent;
       transition: border-top-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+      @include mq.mq($from: medium) {
+        font-size: 3.75cqw;
+      }
 
       @include mq.mq($from: mediumlarge) {
         font-size: 3.125cqw;
