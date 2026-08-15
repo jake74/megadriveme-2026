@@ -139,10 +139,8 @@ $notes = get_field('notes');
 						<div class="icons">
 							<ul>
 								<?php 
-								if ( $players ) {
-										$player_class = substr($players, 2, 1);
-										$player_class = strtolower( $player_class );
-										echo '<li class="p' . $player_class . '">' . $players . '</li>';
+									if ( $players ) {
+										echo '<li class="players ' . $players . '">' . $players . '</li>';
 									}
 									if ( $genre ) {
 										$genre = substr( $genre, 0, 3);

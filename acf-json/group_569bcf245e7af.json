@@ -242,7 +242,7 @@
                 "pzl": "PZL – Puzzle",
                 "rcg": "RCG – Racing",
                 "rpg": "RPG – Role Playing Game",
-                "sht": "SHT – Shoot 'em up",
+                "stg": "STG – Shoot 'em up",
                 "spt": "SPT – Sport",
                 "slg": "SLG – Strategy",
                 "tbl": "TBL – Recreational"
@@ -402,6 +402,40 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_6a804f89f30f6",
+            "label": "Players",
+            "name": "players",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "players-1": "1 Player",
+                "players-1-2": "1-2 Player",
+                "players-1-3": "1-3 Player",
+                "players-1-4": "1-4 Player",
+                "players-1-5": "1-5 Player",
+                "players-1-6": "1-6 Player",
+                "players-1-8": "1-8 Players"
+            },
+            "default_value": "players-1",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_6a61f890b29ca",
@@ -647,5 +681,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1786134210
+    "modified": 1786794958
 }
