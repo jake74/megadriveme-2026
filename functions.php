@@ -588,3 +588,8 @@ require get_template_directory() . '/inc/custom-image-sizes.php';
  * Custom post types.
  */
 require get_template_directory() . '/inc/custom-post-types.php';
+
+/**
+ * ACF local JSON admin tools.
+ */
+require get_template_directory() . '/inc/acf-tools.php';
