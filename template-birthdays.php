@@ -57,8 +57,8 @@ if ( ! in_array( $months_ahead_limit, $allowed_month_limits, true ) ) {
 						<?php foreach ( $fallback_items as $item ) : ?>
 							<li>
 								<?php echo esc_html( wp_date( 'j F', (int) $item['occurrence_timestamp'] ) ); ?>:
-								<a href="<?php echo esc_url( $item['permalink'] ); ?>"><?php echo esc_html( $item['title'] ); ?></a>
-								(<?php echo esc_html( $item['post_type_label'] ); ?>)
+								<a href="<?php echo esc_url( $item['permalink'] ); ?>"><?php echo $item['title']; ?></a>
+								(<?php echo $item['post_type_label']; ?>)
 							</li>
 						<?php endforeach; ?>
 					</ul>

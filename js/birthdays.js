@@ -82,7 +82,7 @@ function renderBirthdays(root, payload) {
         + thumbnailHtml
         + '</div>'
         + '<div class="birthday-title">'
-        + '<a href="' + escapeHtml(item.permalink) + '">' + escapeHtml(item.title) + ' (' + escapeHtml(item.birthday_year) + ')</a>'
+        + '<a href="' + escapeHtml(item.permalink) + '">' + item.title + ' (' + escapeHtml(item.birthday_year) + ')</a>'
         + '<span class="birthday-post-type">' + escapeHtml(item.post_type_label) + '</span>'
         + '</div>'
         + '</article>';
@@ -191,7 +191,7 @@ function renderMonthGroup(group) {
     var futureThumbnailHtml = '';
     if (item.has_thumbnail && item.thumbnail_future_url) {
       futureThumbnailHtml = '<a href="' + escapeHtml(item.permalink) + '" class="game-cover ' + escapeHtml(item.post_type) + '" data-post-type="' + escapeHtml(item.post_type) + '">'
-        + '<img src="' + escapeHtml(item.thumbnail_future_url) + '" alt="' + escapeHtml(item.title) + '" loading="lazy" />'
+        + '<img src="' + escapeHtml(item.thumbnail_future_url) + '" alt="' + item.title + '" loading="lazy" />'
         + '</a>';
     } else {
       futureThumbnailHtml = '<div class="no-thumbnail game-cover ' + escapeHtml(item.post_type) + '" data-post-type="' + escapeHtml(item.post_type) + '">'
@@ -204,7 +204,7 @@ function renderMonthGroup(group) {
       + futureThumbnailHtml
       + '</div>'
       + '<div class="birthday-title">'
-      + '<a href="' + escapeHtml(item.permalink) + '">' + escapeHtml(item.title) + '</a>'
+      + '<a href="' + escapeHtml(item.permalink) + '">' + item.title + '</a>'
       + '<span class="birthday-post-type">' + escapeHtml(item.post_type_label) + ' / ' + escapeHtml(item.birthday_year) + '</span>'
       + '</div>'
       + '</article>';
